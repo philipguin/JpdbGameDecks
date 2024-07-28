@@ -1,0 +1,2 @@
+# Don't modify files from asayake's tool:
+*.csv text eol=lf
