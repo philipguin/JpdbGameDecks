@@ -1,7 +1,7 @@
 # JPDB Game Decks
 A collection of [jpdb.io](https://jpdb.io) vocabulary/kanji decks for studying Japanese video game text.
 
-### ⚠⚠ DISCLAIMER: THIS IS _NOT_ OFFICIAL AND MAY CONTAIN ERRORS OR MISTAKES! ⚠⚠
+### ⚠⚠ DISCLAIMER: THIS IS _NOT_ OFFICIAL AND MAY CONTAIN ERRORS! ⚠⚠
 
 ## Usage
 1. Download the entire project using `git clone` from the command line, or grab the project zip via the green button.
