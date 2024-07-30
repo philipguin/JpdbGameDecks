@@ -16,10 +16,10 @@ def merge_files(order_path, input_path, output_path):
             else:
                 print(f"Warning: {file_path} does not exist, skipping.")
         
-    print(f"Finished!")
+    print("Finished!")
 
 if len(sys.argv) != 4:
-    print("Usage: python combine_text.py  <file_order_file> <input_dir> <output_file>")
+    print("Usage: python combine_text.py <file_order_file> <input_dir> <output_file>")
     sys.exit(1)
 
 merge_files(sys.argv[1], sys.argv[2], sys.argv[3])
