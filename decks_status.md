@@ -1,4 +1,4 @@
-# Deck Status
+# Deck Statuses
 
 A complete list of decks in this repository, with store page links, current status, and quality details.
 
