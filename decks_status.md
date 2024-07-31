@@ -1,15 +1,45 @@
+# Deck Status
 
 A full list of every deck in this repository with status and quality details.
 
-Names link to the most appropriate store page (e.g. Steam) when possible.
 
+## Columns
+
+'Game' names link to the most appropriate store page (e.g. Steam) when possible.
+
+'Progress' refers to how complete the deck is currently. (`-` for 100% complete.)
+
+'Sortedness' (1-10) refers to how roughly sorted the cards are in terms of gameplay.
+Games are generally non-linear, so this value only accounts for that portion of gameplay this is predictable, if any.
+
+'Quality' (1-10) refers to how the creator feels about the deck's overall quality, independent of other columns.
+Lower quality decks will generally contain more parsing errors, potentially requiring more effort on your part.
+
+'Notes' contain any information the creator feels you may want to know before using the deck,
+such as factors contributing to other columns' statuses.
+
+
+## Deck List
+
+<!--
+	All new decks *must* be added to this list.
+	Please conform to the labels above, making your best guess for any values you're unsure of.
+	The goal is to briefly inform users of anything they may want to know before using the deck.
+	Keep notes concise. These are generally good for sorting and quality details.
+	Don't forget to link to the game's Steam store page, or other marketplace if unavailable.
+	Thank you!
+-->
+
+<head>
+	<base target="_blank" rel="noopener noreferrer">
+</head>
 <table>
 	<tr>
-		<td>Game</td>
-		<td>Progress</td>
-		<td>Sortedness</td>
-		<td>Quality</td>
-		<td>Notes</td>
+		<th>Game</th>
+		<th>Progress</th>
+		<th>Sortedness</th>
+		<th>Quality</th>
+		<th>Notes</th>
 	</tr>
 	<tr>
 		<td><a href="https://store.steampowered.com/app/200900/Cave_Story/">Cave Story</a></td>
