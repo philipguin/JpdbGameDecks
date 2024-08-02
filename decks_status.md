@@ -43,7 +43,7 @@ such as organization of muliple CSVs, or factors contributing to the rated quali
 		<td>-</td>
 		<td>10</td>
 		<td>10</td>
-		<td>Two versions, one based on the <a href="http://www.lltvg.com/wiki/Aladdin_(SNES)/Transcript">SNES transcript</a> and another on the <a href="http://www.lltvg.com/wiki/Aladdin_(Genesis)/Transcript">SEGA Genesis transcript</a>. Both are hosted by LLGTV.</td>
+		<td>Two versions, one based on the <a href="http://www.lltvg.com/wiki/Aladdin_(SNES)/Transcript">SNES transcript</a> and another on the <a href="http://www.lltvg.com/wiki/Aladdin_(Genesis)/Transcript">SEGA Genesis transcript</a>. Both are hosted by LLTVG.</td>
 	</tr>
 	<tr>
 		<td><a href="https://store.steampowered.com/app/200900/Cave_Story/">Cave Story</a></td>
@@ -134,7 +134,7 @@ such as organization of muliple CSVs, or factors contributing to the rated quali
 		<td>-</td>
 		<td>10</td>
 		<td>10</td>
-		<td>Based on a <a href="http://www.lltvg.com/wiki/Mega_Man_7/Transcript">transcript hosted by LLGTV.</a></td>
+		<td>Based on a <a href="http://www.lltvg.com/wiki/Mega_Man_7/Transcript">transcript hosted by LLTVG.</a></td>
 	</tr>
 	<tr>
 		<td><a href="https://store.steampowered.com/app/289070/Sid_Meiers_Civilization_VI/">Sid Meier's Civilization VI</a></td>
@@ -142,6 +142,13 @@ such as organization of muliple CSVs, or factors contributing to the rated quali
 		<td>?</td>
 		<td>10</td>
 		<td></td>
+	</tr>
+	<tr>
+		<td>Starfox 64</td>
+		<td>-</td>
+		<td>9?</td>
+		<td>10</td>
+		<td>Based on a <a href="http://www.lltvg.com/wiki/Star_Fox_64">transcript</a> hosted by LLTVG.</td>
 	</tr>
 	<tr>
 		<td>Super Mario RPG</td>
