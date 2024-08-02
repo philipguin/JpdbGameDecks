@@ -74,6 +74,27 @@ such as organization of muliple CSVs, or factors contributing to the rated quali
 		<td>Subtitles sorted by speaker.</td>
 	</tr>
 	<tr>
+		<td>The Legend of Zelda: Majora's Mask</td>
+		<td>-</td>
+		<td>1?</td>
+		<td>9</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>The Legend of Zelda: Ocarina of Time</td>
+		<td>-</td>
+		<td>1?</td>
+		<td>9</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>The Legend of Zelda: Wind Waker</td>
+		<td>-</td>
+		<td>1?</td>
+		<td>9</td>
+		<td></td>
+	</tr>
+	<tr>
 		<td><a href="https://store.steampowered.com/app/1932680/LunarLux/">LunarLux</a></td>
 		<td>-</td>
 		<td>?</td>
@@ -121,27 +142,6 @@ such as organization of muliple CSVs, or factors contributing to the rated quali
 		<td>10</td>
 		<td>10</td>
 		<td>Based on an <a href="http://www.lltvg.com/wiki/Super_Mario_RPG/Transcript">amazing annotated transcript</a> by <i>Mew seeker</i>! Recommended to study only the "In-Game Combined" deck and reference the transcript for everything else. (You might prefer to read it instead of playing.)</td>
-	</tr>
-	<tr>
-		<td>The Legend of Zelda: Majora's Mask</td>
-		<td>-</td>
-		<td>1?</td>
-		<td>9</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>The Legend of Zelda: Ocarina of Time</td>
-		<td>-</td>
-		<td>1?</td>
-		<td>9</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>The Legend of Zelda: Wind Waker</td>
-		<td>-</td>
-		<td>1?</td>
-		<td>9</td>
-		<td></td>
 	</tr>
 	<tr>
 		<td><a href="https://store.steampowered.com/app/391540/Undertale/">Undertale</a></td>
