@@ -39,6 +39,13 @@ such as organization of muliple CSVs, or factors contributing to the rated quali
 		<th>Notes</th>
 	</tr>
 	<tr>
+		<td>Aladdin</td>
+		<td>-</td>
+		<td>10</td>
+		<td>10</td>
+		<td>Two versions, one based on the <a href="http://www.lltvg.com/wiki/Aladdin_(SNES)/Transcript">SNES transcript</a> and another on the <a href="http://www.lltvg.com/wiki/Aladdin_(Genesis)/Transcript">SEGA Genesis transcript</a>. Both are hosted by LLGTV.</td>
+	</tr>
+	<tr>
 		<td><a href="https://store.steampowered.com/app/200900/Cave_Story/">Cave Story</a></td>
 		<td>-</td>
 		<td>8</td>
