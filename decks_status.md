@@ -102,6 +102,13 @@ such as organization of muliple CSVs, or factors contributing to the rated quali
 		<td>Terms sorted first by category, then by rough time encountered (non-linear game). Story deck is solid, but not woven with tutorials.</td>
 	</tr>
 	<tr>
+		<td><a href="https://store.steampowered.com/app/32360/The_Secret_of_Monkey_Island_Special_Edition/">The Secret of Monkey Island</a></td>
+		<td>-</td>
+		<td>10</td>
+		<td>10</td>
+		<td>Based on a <a href="http://www.lltvg.com/wiki/Mega_Man_7/Transcript">transcript hosted by LLGTV.</a></td>
+	</tr>
+	<tr>
 		<td><a href="https://store.steampowered.com/app/289070/Sid_Meiers_Civilization_VI/">Sid Meier's Civilization VI</a></td>
 		<td>-</td>
 		<td>?</td>
