@@ -1,7 +1,9 @@
 # JPDB Game Decks
+
 An unofficial collection of [jpdb.io](https://jpdb.io) vocabulary/kanji decks for studying Japanese video game text!
 
 Before downloading, you can browse decks [here](decks_status.md) for status and quality information, as well as Steam page links.
+
 
 ## Usage
 1. Download the desired CSV files. Options:
@@ -12,6 +14,12 @@ Before downloading, you can browse decks [here](decks_status.md) for status and 
 3. Under _Import Decks_, select the CSVs you want from those just downloaded.
    * Note there's a 250 deck limit and it takes about a second per deck.
 4. (Optional) merge decks using <https://kampffrosch94.github.io/jpdb-deck-manager>.
+
+
+## Contributing
+
+Contributions are welcome! If you'd like to add a deck, then please follow [this guide](contributing.md).
+
 
 ## Disclaimers
 
