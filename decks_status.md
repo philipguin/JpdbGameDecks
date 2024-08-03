@@ -126,8 +126,8 @@ such as organization of muliple CSVs, or factors contributing to the rated quali
 		<td><a href="https://store.steampowered.com/app/400910/RabiRibi/">Rabi-Ribi</a></td>
 		<td>-</td>
 		<td>8</td>
-		<td>10</td>
-		<td>Terms sorted first by category, then by rough time encountered (non-linear game). Story deck is solid, but not woven with tutorials.</td>
+		<td>9</td>
+		<td>Story deck is sorted and solid, but tutorials and other text are in a separate deck sorted first by category, then by rough time encountered. Metroidvanias don't typically lend themselves to chronological sorting, but still.</td>
 	</tr>
 	<tr>
 		<td><a href="https://store.steampowered.com/app/32360/The_Secret_of_Monkey_Island_Special_Edition/">The Secret of Monkey Island</a></td>
