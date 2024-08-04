@@ -31,25 +31,29 @@ To create and upload your deck, please do the following:
 
 5. Create an `info.yaml` for your deck:
 
-    Please read the column descriptions in <decks_status.md>, making your best guess for any values you're unsure of.
+    Please read the column descriptions in <decks_status.md>, making your best guess for any values you can.
     The goal is to briefly inform users of anything they may want to know before using the deck.
     Keep notes concise and make sure to credit anyone who gathered the input text for your deck.
-    Only `store-link` and `difficulty-source` may be blank.
+
+    Only `name` and `progress` are absolutely mandatory.
+    `difficulty-source` and `notes-and-sources` may be left blank if appropriate. 
+    Everything else _can_ be blank, but you better have a good reason why!
 
     Example file:
 
 ```yaml
-name: Persona Before Time XXVII
-store-link: "https://store.steampowered.com/app/77777/PersonaBeforeTimeXXVII/"
-deck-author: Your Name
+name: Persona Before Time XXVII # Game title, omitting articles at the beginning (like "The").
+store-link: "https://store.steampowered.com/app/77777/PersonaBeforeTimeXXVII/" # Prefer Steam, then GOG, then whatever legal source.
+deck-author: Your Name     # Must be identical to other decks you've submitted.
 difficulty: 5              # Use jpdb.io difficulty as reference, e.g. in Chat-GPT prompt.
 difficulty-source: gpt4o   # LLM used (e.g. Chat-GPT). Leave blank if difficulty gauged without.
-progress: complete         # "complete"/"100"/"100%" are special values, anything else is displayed as-is.
-sortedness: 8              # Use "?" if you can't tell (including quotes).
+progress: complete         # "complete"/"100"/"100%" are special values, anything else gets displayed with the title in parenthesis.
+sortedness: 8              # Leave blank if you just can't tell.
 quality: 9                 # Make your best guess. E.g. start at 10 and deduct a point for every significant problem.
-notes-and-sources: >-      # '>-' marks a multi-line string that removes newlines.
+notes-and-sources: >-      # You must credit and link sources, if any. '>-' marks a multi-line string that removes newlines.
   Story deck is sorted and solid, but tutorials and other text are in a
   separate deck sorted first by category, then by rough time encountered.
+  Based on this <a href="https://homestarrunner.com">transcript</a> by CoolGuy27.
 
 ```
 

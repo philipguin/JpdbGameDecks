@@ -1,5 +1,7 @@
 import os
 import yaml
+import re
+from collections import Counter
 
 def validate_yaml(yaml_file):
     try:
@@ -15,43 +17,105 @@ def scrape_info(yaml_file):
     with open(yaml_file, 'r', encoding='utf-8') as file:
         return yaml.safe_load(file)
 
+
+def is_progress_complete(x):
+    x = x.lower()
+    return x == 'complete' or x == '100' or x == '100%'
+
+def output_metrics(output_file, yaml_infos):
+
+    count_complete = sum(is_progress_complete(x.get('progress', '')) for _, x in yaml_infos)
+    count_wip = len(yaml_infos) - count_complete
+    
+    contributors = Counter(x.get('deck-author', '') for _, x in yaml_infos)
+    contrib_names = list(k for k, _ in sorted(contributors.items(), key=lambda x: -x[1])) # from most to least decks
+
+    output_file.write(f'* Decks Complete: {count_complete}\n')
+    output_file.write(f'* Decks In-Progress: {count_wip}\n')
+    output_file.write(f'* Contributors ({len(contributors)}): {", ".join(contrib_names)}\n')
+    output_file.write('\n\n')
+
 def output_html_table(output_file, yaml_infos):
+
+    difficulty_colors = [
+        '#FFFFFF',
+        '#00FF00',
+        '#32FF00',
+        '#64FF00',
+        '#96FF00',
+        '#C8FF00',
+        '#FFFF00',
+        '#FFC800',
+        '#FF9600',
+        '#FF6400',
+        '#FF3200',
+        '#FF0000',
+    ]
+
+    def get_difficulty_index(value):
+
+        if value is None: return 0
+        if type(value) is int: return value
+        if type(value) is float: return round(value)
+        if type(value) is not str: raise ValueError(f'Difficulty of unhandled type {type(value)}"')
+
+        match_unknown = re.match(r'^[\?\s]+$', value)
+        if match_unknown:
+            return 0
+
+        # Check if the input matches the first format (e.g., "12" or "12?")
+        match_single = re.match(r'^\s*(\d+)(\s*\?)?\s*$', value)
+        if match_single:
+            return int(match_single.group(1))
+        
+        # Check if the input matches the second format (e.g., "12-15" or "12-15?")
+        match_range = re.match(r'^\s*(\d+)\s*\-\s*(\d+)(\s*\?)?\s*$', value)
+        if match_range:
+            num1 = int(match_range.group(1))
+            num2 = int(match_range.group(2))
+            return round((num1 + num2) / 2)
+        
+        raise ValueError(f'Difficulty format not recognized: "{value}"')
+
+
+    output_file.write("⚠️ __REMINDER__: you must download this entire repo to obtain these decks! (Don't worry, they're small files.)")
     output_file.write("""
 <table>
     <tr>
-        <th>Game & Store Page</th>
+        <th>Game & Store&nbsp;Page</th>
         <th>Difficulty</th>
-        <th>Progress</th>
         <th>Sortedness</th>
         <th>Quality</th>
         <th>Notes & Sources</th>
-        <th>Deck Author</th>
+        <th>Contributor</th>
     </tr>""") # can't have multiple line-endings between these, or Markdown parsing chokes
 
     for _, info in yaml_infos:
-        name = info.get('name', '')
-        store_link = info.get('store-link', '')
-        difficulty = info.get('difficulty', '')
-        difficulty_source = info.get('difficulty-source', '')
-        progress = info.get('progress', '')
-        sortedness = info.get('sortedness', '')
-        quality = info.get('quality', '')
-        notes_and_sources = info.get('notes-and-sources', '')
-        deck_author = info.get('deck-author', '')
+        name = info.get('name') or ''
+        store_link = info.get('store-link')
+        difficulty = info.get('difficulty')
+        difficulty_source = info.get('difficulty-source')
+        progress = info.get('progress') or '??%'
+        sortedness = info.get('sortedness') or ''
+        quality = info.get('quality', '') or ''
+        notes_and_sources = info.get('notes-and-sources') or '' # never allow None
+        deck_author = info.get('deck-author') or ''
 
-        title = name if store_link == '' else f'<a href="{store_link}">{name}</a>'
+        title = name if not store_link else f'<a href="{store_link}">{name}</a>'
+        if not is_progress_complete(progress): title = f'{title} ({progress})'
 
-        progressL = progress.lower()
-        progress_is_complete = progressL == 'complete' or progressL == '100' or progressL == '100%'
-        progress_display = '-' if progress_is_complete else progress
-
-        difficulty_display = f"{difficulty} ({difficulty_source})" if difficulty_source else difficulty
+        if difficulty is None:
+            difficulty = ''
+        else:
+            diff_color = difficulty_colors[get_difficulty_index(difficulty)]
+            difficulty = f'<span style="color:{diff_color};">{difficulty}</span>'
+            if difficulty_source:
+                difficulty = f'{difficulty} <sub>{difficulty_source}</sub>'
 
         output_file.write(f"""
     <tr>
         <td>{title}</td>
-        <td>{difficulty_display}</td>
-        <td>{progress_display}</td>
+        <td>{difficulty}</td>
         <td>{sortedness}</td>
         <td>{quality}</td>
         <td>{notes_and_sources}</td>
@@ -94,6 +158,9 @@ def main():
             "-->\n\n"))
             output_file.write(header_content)
             output_file.write('\n')
+            output_file.write('## Metrics\n\n')
+            output_metrics(output_file, yaml_infos)
+            output_file.write('## Deck List\n\n')
             output_html_table(output_file, yaml_infos)
         
         print("Composite table generated and written to decks_status.md")

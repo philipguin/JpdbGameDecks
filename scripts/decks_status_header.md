@@ -5,29 +5,36 @@ A complete list of decks in this repository, with store page links, current stat
 
 ## Columns
 
-* __Game & Store Page__: game title and link to the most appropriate store page (e.g. Steam) when possible.
+* __Game & Store Page__:
 
-* __Difficulty (1-10)__: how difficult the Japanese level of the game is (the same as jpdb's rating).
+    Game title and link to the most appropriate store page (e.g. Steam) when possible. 
+    Also notes current progress if incomplete.
 
-   May include factors outside the scope of the deck, such as grammar patterns.
+* __Difficulty (1-10)__:
 
-    A prefix indicates the model of large language model used to determine the number.
-    (These are often unreliable but are suitable in this particular context.)
+    How difficult the Japanese level of the game is (the same as jpdb's rating).
+    May include factors outside the scope of the deck, such as grammar patterns.
+    Subscript indicates the kind of large language model (LLM) used to derive the number, if any.
+    (LLMs can be unreliable, but are suitable in this particular context.)
 
-* __Progress__: how complete the deck is currently. `-` means 100% of feasible content is added.
+* __Sortedness (1-10)__:
 
-* __Sortedness (1-10)__: how sorted the cards are in terms of gameplay order, roughly speaking.
-
+    How sorted the cards are in terms of gameplay order, roughly speaking.
     Games are generally non-linear, so this value only accounts for that portion of gameplay this is predictable, if any.
 
+* __Quality (1-10)__:
+
+    Quality of the deck, independent of other columns.
     Lower quality decks generally contain more parsing errors, potentially requiring more effort on your part to use.
 
-* __Notes & Sources__: any details the deck creator feels you may want to know before using the deck,
-such as organization of muliple CSVs, or factors contributing to the rated quality or sortedness.
-Also includes attribution to other peoples' work (e.g. translations) if used.
+* __Notes & Sources__:
 
-* __Deck Creator__: the name or username of the person who created the deck itself.
-(Credit for any input data, if not taken directly from the source, goes in the previous section.)
+    Any details the deck creator feels you may want to know before using the deck,
+    such as organization of muliple CSVs, or factors contributing to the rated quality or sortedness.
+    Also includes attribution to other peoples' work (e.g. translations) if used.
 
+* __Contributor__:
 
-## Deck List
+    The name or username of the person who created the deck itself.
+    (Credit for any input data, if not taken directly from the source, goes in the previous section.)
+
