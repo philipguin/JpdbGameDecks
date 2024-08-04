@@ -78,14 +78,12 @@ def output_html_table(output_file, yaml_infos):
         raise ValueError(f'Difficulty format not recognized: "{value}"')
 
 
-    output_file.write("⚠️ __REMINDER__: you must download this entire repo to obtain these decks! (Don't worry, they're small files.)")
+    output_file.write("> ⚠️ __REMINDER__: you must download this entire repo to obtain these decks! (Don't worry, they're small files.)")
     output_file.write("""
 <table>
     <tr>
         <th>Game & Store&nbsp;Page</th>
-        <th>Difficulty</th>
-        <th>Sortedness</th>
-        <th>Quality</th>
+        <th colspan="3">Difficulty, Sortedness, Quality</th>
         <th>Notes & Sources</th>
         <th>Contributor</th>
     </tr>""") # can't have multiple line-endings between these, or Markdown parsing chokes
@@ -108,9 +106,10 @@ def output_html_table(output_file, yaml_infos):
             difficulty = ''
         else:
             diff_color = difficulty_colors[get_difficulty_index(difficulty)]
+            if type(difficulty) is str: difficulty = difficulty.replace("-", "&#8209;") # non-breaking hyphen
             difficulty = f'<font color="{diff_color}">{difficulty}</font>'
             if difficulty_source:
-                difficulty = f'{difficulty} <sub>{difficulty_source}</sub>'
+                difficulty = f'{difficulty}&nbsp;<sub>{difficulty_source}</sub>'
 
         output_file.write(f"""
     <tr>
