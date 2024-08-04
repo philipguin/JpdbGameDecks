@@ -46,7 +46,7 @@ A complete list of decks in this repository, with store page links, current stat
 
 ## Metrics
 
-* Decks Complete: 21
+* Decks Complete: 24
 * Decks In-Progress: 1
 * Contributors (1): Frizzil
 
@@ -94,6 +94,14 @@ A complete list of decks in this repository, with store page links, current stat
         <td>Frizzil</td>
     </tr>
     <tr>
+        <td><a href="https://store.steampowered.com/app/2893570/DRAGON_QUEST_I__II_HD2D_Remake/">Dragon Quest</a></td>
+        <td><font color="#32FF00">2&#8209;3</font>&nbsp;<sub>gpt4o</sub></td>
+        <td>10</td>
+        <td>10</td>
+        <td>Based on a meticulously annotated <a href='https://gamefaqs.gamespot.com/nes/563408-dragon-warrior/faqs/42955'>transcript</a> written by Jason Kunts (x_loto) and hosted on GameFAQs. Item and tool names were spliced in just after the town they're first obtainable in, for a _perfect_ sorting ignoring magic and monster names.</td>
+        <td>Frizzil</td>
+    </tr>
+    <tr>
         <td><a href="https://store.steampowered.com/app/427520/Factorio/">Factorio</a></td>
         <td><font color="#C8FF00">5</font>&nbsp;<sub>gpt4o</sub></td>
         <td></td>
@@ -115,6 +123,14 @@ A complete list of decks in this repository, with store page links, current stat
         <td>2</td>
         <td>10</td>
         <td>Subtitles sorted by speaker.</td>
+        <td>Frizzil</td>
+    </tr>
+    <tr>
+        <td>TLoZ: A Link to the Past</td>
+        <td><font color="#96FF00">3&#8209;4</font>&nbsp;<sub>gpt4o</sub></td>
+        <td>9</td>
+        <td>9</td>
+        <td>Based on a <a href='http://www.lltvg.com/wiki/The_Legend_of_Zelda:_A_Link_to_the_Past/Script_dump'>transcript</a> hosted by LLTVG, originally made by <a href='http://www.lltvg.com/wiki/User:Furrykef'>Kef Schecter</a> .</td>
         <td>Frizzil</td>
     </tr>
     <tr>
@@ -195,6 +211,14 @@ A complete list of decks in this repository, with store page links, current stat
         <td></td>
         <td>10</td>
         <td>Includes all base game and DLC content. Be sure to merge all DLCs into one deck for convenience if desired.</td>
+        <td>Frizzil</td>
+    </tr>
+    <tr>
+        <td>SimCity (SNES)</td>
+        <td><font color="#96FF00">3&#8209;4</font>&nbsp;<sub>gpt4o</sub></td>
+        <td>6</td>
+        <td>10</td>
+        <td>Based on a <a href='http://www.lltvg.com/wiki/SimCity_(SNES)/Transcript'>transcript</a> hosted by LLTVG.</td>
         <td>Frizzil</td>
     </tr>
     <tr>
