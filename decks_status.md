@@ -58,7 +58,7 @@ A complete list of decks in this repository, with store page links, current stat
     <tr>
         <th>Game & Store&nbsp;Page</th>
         <th colspan="3">Difficulty, Sortedness, Quality</th>
-        <th>Notes & Sources</th>
+        <th>Notes&nbsp&&nbspSources</th>
         <th>Contri&#8203;butor</th>
     </tr>
     <tr>
@@ -110,7 +110,7 @@ A complete list of decks in this repository, with store page links, current stat
         <td>Frizzil</td>
     </tr>
     <tr>
-        <td>The Legend of Zelda: Majora's Mask</td>
+        <td>TLoZ: Majora's Mask</td>
         <td></td>
         <td>1?</td>
         <td>9</td>
@@ -118,7 +118,7 @@ A complete list of decks in this repository, with store page links, current stat
         <td>Frizzil</td>
     </tr>
     <tr>
-        <td>The Legend of Zelda: Ocarina of Time</td>
+        <td>TLoZ: Ocarina of Time</td>
         <td></td>
         <td>1?</td>
         <td>9</td>
@@ -126,7 +126,7 @@ A complete list of decks in this repository, with store page links, current stat
         <td>Frizzil</td>
     </tr>
     <tr>
-        <td>The Legend of Zelda: Wind Waker</td>
+        <td>TLoZ: Wind Waker</td>
         <td></td>
         <td>1?</td>
         <td>9</td>
@@ -198,11 +198,11 @@ A complete list of decks in this repository, with store page links, current stat
         <td>Frizzil</td>
     </tr>
     <tr>
-        <td><a href="https://store.steampowered.com/app/1659600/Teenage_Mutant_Ninja_Turtles_The_Cowabunga_Collection/">Teenage Mutant Ninja Turtles: Turtles in Time</a></td>
+        <td><a href="https://store.steampowered.com/app/1659600/Teenage_Mutant_Ninja_Turtles_The_Cowabunga_Collection/">TMNT: Turtles in Time</a></td>
         <td><font color="#32FF00">2&#8209;3</font>&nbsp;<sub>gpt4o</sub></td>
         <td>10</td>
         <td>10</td>
-        <td>Based on a brief <a href='http://www.lltvg.com/wiki/Teenage_Mutant_Ninja_Turtles_IV:_Turtles_in_Time/Transcript'>transcript</a> hosted by LLTVG (maybe 150s word long).</td>
+        <td>Based on a brief <a href='http://www.lltvg.com/wiki/Teenage_Mutant_Ninja_Turtles_IV:_Turtles_in_Time/Transcript'>transcript</a> hosted by LLTVG (maybe 150 words long).</td>
         <td>Frizzil</td>
     </tr>
     <tr>

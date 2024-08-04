@@ -84,9 +84,10 @@ def output_html_table(output_file, yaml_infos):
     <tr>
         <th>Game & Store&nbsp;Page</th>
         <th colspan="3">Difficulty, Sortedness, Quality</th>
-        <th>Notes & Sources</th>
+        <th>Notes&nbsp&&nbspSources</th>
         <th>Contri&#8203;butor</th>
     </tr>""") # can't have multiple line-endings between these, or Markdown parsing chokes
+    # Lots of fanagling above to get columns at ideal width... break here, don't break there, etc.
 
     for _, info in yaml_infos:
         name = info.get('name') or ''
