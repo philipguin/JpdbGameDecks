@@ -46,7 +46,7 @@ A complete list of decks in this repository, with store page links, current stat
 
 ## Metrics
 
-* Decks Complete: 19
+* Decks Complete: 21
 * Decks In-Progress: 1
 * Contributors (1): Frizzil
 
@@ -99,6 +99,14 @@ A complete list of decks in this repository, with store page links, current stat
         <td></td>
         <td>10</td>
         <td>Game isn't linear, however, it could be sorted in terms of tutorials, tech or recipes, which ours isn't.</td>
+        <td>Frizzil</td>
+    </tr>
+    <tr>
+        <td>Final Fantasy 1</td>
+        <td><font color="#96FF00">4&#8209;5</font>&nbsp;<sub>gpt4o</sub></td>
+        <td>10</td>
+        <td>9</td>
+        <td>Based on this <a href="https://nayukaaaaa.nomaki.jp/wp/ff/ff1.html">transcript</a> provided by Nomaki Nayuka(?), hand-written when he originally played the game. Input contains kanji not present in the original, and contains extraneous section markers with the effect of inflating name and location frequencies slightly.</td>
         <td>Frizzil</td>
     </tr>
     <tr>
@@ -155,6 +163,14 @@ A complete list of decks in this repository, with store page links, current stat
         <td></td>
         <td>9</td>
         <td></td>
+        <td>Frizzil</td>
+    </tr>
+    <tr>
+        <td>QuackShot</td>
+        <td><font color="#32FF00">2&#8209;3</font>&nbsp;<sub>gpt4o</sub></td>
+        <td>10</td>
+        <td>10</td>
+        <td>Based on an amazing <a href="http://www.lltvg.com/wiki/Quackshot_Starring_Donald_Duck/Transcript">transcript</a> from LLTVG. Thanks to the English annotations, I was able to accurately splice everything together for a _perfect_ sort. We also have a kanji-injected version (kudo to gpt4o), since the original seemingly had none.</td>
         <td>Frizzil</td>
     </tr>
     <tr>

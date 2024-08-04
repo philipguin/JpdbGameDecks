@@ -1,0 +1,14 @@
+name: QuackShot
+store-link:
+deck-author: Frizzil
+difficulty: 2-3
+difficulty-source: gpt4o
+progress: complete
+sortedness: 10
+quality: 10
+notes-and-sources: >-
+  Based on an amazing
+  <a href="http://www.lltvg.com/wiki/Quackshot_Starring_Donald_Duck/Transcript">transcript</a>
+  from LLTVG.
+  Thanks to the English annotations, I was able to accurately splice everything together for a _perfect_ sort.
+  We also have a kanji-injected version (kudo to gpt4o), since the original seemingly had none.
