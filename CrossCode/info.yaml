@@ -1,10 +1,10 @@
 name: CrossCode
 store-link: https://store.steampowered.com/app/368340/CrossCode/
 deck-author: Frizzil
-difficulty:
-difficulty-source:
+difficulty: 3-4
+difficulty-source: gpt4o
 progress: complete
-sortedness: 9?
+sortedness: 8
 quality: 10
 notes-and-sources: >-
   Some clutter at the beginning of the deck, but probably ideal afterward.

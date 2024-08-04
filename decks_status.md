@@ -79,8 +79,8 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/368340/CrossCode/">CrossCode</a></td>
-        <td></td>
-        <td>9?</td>
+        <td><font color="#96FF00">3&#8209;4</font>&nbsp;<sub>gpt4o</sub></td>
+        <td>8</td>
         <td>10</td>
         <td>Some clutter at the beginning of the deck, but probably ideal afterward.</td>
         <td>Frizzil</td>
