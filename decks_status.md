@@ -65,7 +65,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td>Aladdin</td>
-        <td><span style="color:#96FF00;">3-4</span> <sub>gpt4o</sub></td>
+        <td><font color="#96FF00">3-4</font> <sub>gpt4o</sub></td>
         <td>10</td>
         <td>10</td>
         <td>There are two versions, one based on the <a href="http://www.lltvg.com/wiki/Aladdin_(SNES)/Transcript">SNES transcript</a> and another based on the <a href="http://www.lltvg.com/wiki/Aladdin_(Genesis)/Transcript">SEGA Genesis transcript</a>. Both transcripts are sourced from LLTVG.</td>
@@ -73,7 +73,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/200900/Cave_Story/">Cave Story</a></td>
-        <td><span style="color:#96FF00;">3-4</span> <sub>gpt4o</sub></td>
+        <td><font color="#96FF00">3-4</font> <sub>gpt4o</sub></td>
         <td>8</td>
         <td>10</td>
         <td>Cards sorted by game stage. Future scenes in earlier stages may appear prematurely.</td>
@@ -97,7 +97,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/427520/Factorio/">Factorio</a></td>
-        <td><span style="color:#C8FF00;">5</span> <sub>gpt4o</sub></td>
+        <td><font color="#C8FF00">5</font> <sub>gpt4o</sub></td>
         <td></td>
         <td>10</td>
         <td>Game isn't linear, however, it could be sorted in terms of tutorials, tech or recipes, which ours isn't.</td>
@@ -137,7 +137,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/1932680/LunarLux/">LunarLux</a></td>
-        <td><span style="color:#96FF00;">4</span> <sub>gpt4o</sub></td>
+        <td><font color="#96FF00">4</font> <sub>gpt4o</sub></td>
         <td></td>
         <td>9</td>
         <td></td>
@@ -145,7 +145,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/495050/Mega_Man_Legacy_Collection_2/">Mega Man 7</a></td>
-        <td><span style="color:#96FF00;">3-4</span> <sub>gpt4o</sub></td>
+        <td><font color="#96FF00">3-4</font> <sub>gpt4o</sub></td>
         <td>10</td>
         <td>10</td>
         <td>Based on an amazing annotated <a href='http://www.lltvg.com/wiki/Mega_Man_7/Transcript'>transcript</a> by <i>Mew seeker</i>! (You can always read it instead of playing the game.)</td>
@@ -153,7 +153,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/420530/OneShot/">OneShot</a></td>
-        <td><span style="color:#FFFF00;">5-6</span> <sub>gpt4o</sub></td>
+        <td><font color="#FFFF00">5-6</font> <sub>gpt4o</sub></td>
         <td></td>
         <td>9</td>
         <td></td>
@@ -161,7 +161,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/400910/RabiRibi/">Rabi-Ribi</a></td>
-        <td><span style="color:#64FF00;">3</span> <sub>gpt4o</sub></td>
+        <td><font color="#64FF00">3</font> <sub>gpt4o</sub></td>
         <td>8</td>
         <td>9</td>
         <td>Story deck is sorted and solid, but tutorials and other text are in a separate deck sorted first by category, then by rough time encountered. Metroidvanias don't typically lend themselves to chronological sorting, but still.</td>
@@ -169,7 +169,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/32360/The_Secret_of_Monkey_Island_Special_Edition/">The Secret of Monkey Island</a></td>
-        <td><span style="color:#96FF00;">3-4</span> <sub>gpt4o</sub></td>
+        <td><font color="#96FF00">3-4</font> <sub>gpt4o</sub></td>
         <td>10</td>
         <td>10</td>
         <td>Based on a <a href='http://www.lltvg.com/wiki/Mega_Man_7/Transcript'>transcript</a> hosted by LLTVG.</td>
@@ -177,7 +177,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/289070/Sid_Meiers_Civilization_VI/">Sid Meier's Civilization VI</a></td>
-        <td><span style="color:#FFFF00;">6-7</span> <sub>gpt4o</sub></td>
+        <td><font color="#FFFF00">6-7</font> <sub>gpt4o</sub></td>
         <td></td>
         <td>10</td>
         <td>Includes all base game and DLC content. Be sure to merge all DLCs into one deck for convenience if desired.</td>
@@ -185,7 +185,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td>Starfox 64</td>
-        <td><span style="color:#64FF00;">3</span> <sub>gpt4o</sub></td>
+        <td><font color="#64FF00">3</font> <sub>gpt4o</sub></td>
         <td>9?</td>
         <td>10</td>
         <td>Based on a <a href='http://www.lltvg.com/wiki/Star_Fox_64'>transcript</a> hosted by LLTVG.</td>
@@ -193,7 +193,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td>Super Mario RPG</td>
-        <td><span style="color:#96FF00;">3-4</span> <sub>gpt4o</sub></td>
+        <td><font color="#96FF00">3-4</font> <sub>gpt4o</sub></td>
         <td>10</td>
         <td>10</td>
         <td>Based on an amazing annotated <a href='http://www.lltvg.com/wiki/Super_Mario_RPG/Transcript'>transcript</a> by <i>Mew seeker</i>! Recommended to study only the 'In-Game Combined' deck and reference the transcript for everything else. (You might prefer to read it instead of playing.)</td>
@@ -201,7 +201,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/1659600/Teenage_Mutant_Ninja_Turtles_The_Cowabunga_Collection/">Teenage Mutant Ninja Turtles: Turtles in Time</a></td>
-        <td><span style="color:#32FF00;">2-3</span> <sub>gpt4o</sub></td>
+        <td><font color="#32FF00">2-3</font> <sub>gpt4o</sub></td>
         <td>10</td>
         <td>10</td>
         <td>Based on a brief <a href='http://www.lltvg.com/wiki/Teenage_Mutant_Ninja_Turtles_IV:_Turtles_in_Time/Transcript'>transcript</a> hosted by LLTVG (maybe 150s word long).</td>
@@ -209,7 +209,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/391540/Undertale/">Undertale</a></td>
-        <td><span style="color:#96FF00;">3-4</span> <sub>gpt4o</sub></td>
+        <td><font color="#96FF00">3-4</font> <sub>gpt4o</sub></td>
         <td>2?</td>
         <td>8</td>
         <td></td>
@@ -217,7 +217,7 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/1669980/Volcano_Princess/">Volcano Princess</a></td>
-        <td><span style="color:#96FF00;">4-5</span> <sub>gpt4o</sub></td>
+        <td><font color="#96FF00">4-5</font> <sub>gpt4o</sub></td>
         <td></td>
         <td>8</td>
         <td></td>

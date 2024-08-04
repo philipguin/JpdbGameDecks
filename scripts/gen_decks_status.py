@@ -108,7 +108,7 @@ def output_html_table(output_file, yaml_infos):
             difficulty = ''
         else:
             diff_color = difficulty_colors[get_difficulty_index(difficulty)]
-            difficulty = f'<span style="color:{diff_color};">{difficulty}</span>'
+            difficulty = f'<font color="{diff_color}">{difficulty}</font>'
             if difficulty_source:
                 difficulty = f'{difficulty} <sub>{difficulty_source}</sub>'
 
