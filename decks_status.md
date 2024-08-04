@@ -184,7 +184,7 @@ A complete list of decks in this repository, with store page links, current stat
     <tr>
         <td>Starfox 64</td>
         <td><font color="#64FF00">3</font>&nbsp;<sub>gpt4o</sub></td>
-        <td>9?</td>
+        <td>8</td>
         <td>10</td>
         <td>Based on a <a href='http://www.lltvg.com/wiki/Star_Fox_64'>transcript</a> hosted by LLTVG.</td>
         <td>Frizzil</td>
