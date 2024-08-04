@@ -1,0 +1,14 @@
+title: JPDB Game Decks
+description: An open-source collection of Japanese flash card decks for jpdb.io based on video games.
+url: "https://philipguin.github.io"
+baseurl: "/JpdbGameDecks"
+
+twitter_username: frizzildev
+github_username: philipguin
+
+remote_theme: jekyll/minima # no '@v2.5.1' because latest tag way behind HEAD
+minima:
+  skin: dark
+
+plugins:
+- jekyll-remote-theme
