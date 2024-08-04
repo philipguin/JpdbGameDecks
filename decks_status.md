@@ -46,7 +46,7 @@ A complete list of decks in this repository, with store page links, current stat
 
 ## Metrics
 
-* Decks Complete: 24
+* Decks Complete: 25
 * Decks In-Progress: 1
 * Contributors (1): Frizzil
 
@@ -227,6 +227,14 @@ A complete list of decks in this repository, with store page links, current stat
         <td>8</td>
         <td>10</td>
         <td>Based on a <a href='http://www.lltvg.com/wiki/Star_Fox_64'>transcript</a> hosted by LLTVG.</td>
+        <td>Frizzil</td>
+    </tr>
+    <tr>
+        <td>Super Mario Bros. 3</td>
+        <td><font color="#32FF00">2&#8209;3</font>&nbsp;<sub>gpt4o</sub></td>
+        <td>10</td>
+        <td>10</td>
+        <td>Based on a <a href='http://www.lltvg.com/wiki/Super_Mario_Bros._3/Transcript'>transcript</a> created by <i> <a href='http://www.lltvg.com/wiki/User:Furrykef'>Kef Schecter</a> </i>. Kanji-fied version created with Chat-GPT 4o.</td>
         <td>Frizzil</td>
     </tr>
     <tr>
