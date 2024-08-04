@@ -59,7 +59,7 @@ A complete list of decks in this repository, with store page links, current stat
         <th>Game & Store&nbsp;Page</th>
         <th colspan="3">Difficulty, Sortedness, Quality</th>
         <th>Notes & Sources</th>
-        <th>Contributor</th>
+        <th>Contri&#8203;butor</th>
     </tr>
     <tr>
         <td>Aladdin</td>
