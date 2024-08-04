@@ -1,0 +1,16 @@
+name: Dragon Quest
+store-link: "https://store.steampowered.com/app/2893570/DRAGON_QUEST_I__II_HD2D_Remake/"
+deck-author: Frizzil
+difficulty: 2-3
+difficulty-source: gpt4o
+progress: complete
+sortedness: 10
+quality: 10
+notes-and-sources: >-
+  Based on a
+  <a href='https://gamefaqs.gamespot.com/nes/563408-dragon-warrior/faqs/42955'>translation</a>
+  written by Jason Kunts (x_loto) and hosted on GameFAQs.
+  Item and tool names were spliced in just after the town they're first obtainable in,
+  for a _perfect_ sorting ignoring magic and monster names.
+  Kanji-injected version kudos of Chat-GPT 4o.
+

@@ -98,7 +98,7 @@ A complete list of decks in this repository, with store page links, current stat
         <td><font color="#32FF00">2&#8209;3</font>&nbsp;<sub>gpt4o</sub></td>
         <td>10</td>
         <td>10</td>
-        <td>Based on a meticulously annotated <a href='https://gamefaqs.gamespot.com/nes/563408-dragon-warrior/faqs/42955'>transcript</a> written by Jason Kunts (x_loto) and hosted on GameFAQs. Item and tool names were spliced in just after the town they're first obtainable in, for a _perfect_ sorting ignoring magic and monster names.</td>
+        <td>Based on a <a href='https://gamefaqs.gamespot.com/nes/563408-dragon-warrior/faqs/42955'>translation</a> written by Jason Kunts (x_loto) and hosted on GameFAQs. Item and tool names were spliced in just after the town they're first obtainable in, for a _perfect_ sorting ignoring magic and monster names. Kanji-injected version kudos of Chat-GPT 4o.</td>
         <td>Frizzil</td>
     </tr>
     <tr>
