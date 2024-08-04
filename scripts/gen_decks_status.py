@@ -78,7 +78,7 @@ def output_html_table(output_file, yaml_infos):
         raise ValueError(f'Difficulty format not recognized: "{value}"')
 
 
-    output_file.write("> ⚠️ __REMINDER__: you must download this entire repo to obtain these decks! (Don't worry, they're small files.)")
+    output_file.write("⚠️ __REMINDER__: you must download this entire repo to obtain these decks! (Don't worry, they're small files.)")
     output_file.write("""
 <table>
     <tr>

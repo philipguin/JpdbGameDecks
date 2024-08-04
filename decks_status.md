@@ -53,7 +53,7 @@ A complete list of decks in this repository, with store page links, current stat
 
 ## Deck List
 
-> ⚠️ __REMINDER__: you must download this entire repo to obtain these decks! (Don't worry, they're small files.)
+⚠️ __REMINDER__: you must download this entire repo to obtain these decks! (Don't worry, they're small files.)
 <table>
     <tr>
         <th>Game & Store&nbsp;Page</th>
