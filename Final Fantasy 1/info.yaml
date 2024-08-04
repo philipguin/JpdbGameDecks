@@ -1,5 +1,5 @@
 name: Final Fantasy 1
-store-link:
+store-link: "https://store.steampowered.com/app/1173770/FINAL_FANTASY/"
 deck-author: Frizzil
 difficulty: 4-5
 difficulty-source: gpt4o
@@ -11,4 +11,4 @@ notes-and-sources: >-
   <a href="https://nayukaaaaa.nomaki.jp/wp/ff/ff1.html">transcript</a>
   provided by Nomaki Nayuka(?), hand-written when he originally played the game.
   Input contains kanji not present in the original,
-  and contains extraneous section markers with the effect of inflating name and location frequencies slightly.
+  and contains extraneous section markers with the effect of slightly inflating name and location frequencies.
