@@ -234,7 +234,7 @@ A complete list of decks in this repository, with store page links, current stat
         <td><font color="#32FF00">2&#8209;3</font>&nbsp;<sub>gpt4o</sub></td>
         <td>10</td>
         <td>10</td>
-        <td>Based on a <a href='http://www.lltvg.com/wiki/Super_Mario_Bros._3/Transcript'>transcript</a> created by <i> <a href='http://www.lltvg.com/wiki/User:Furrykef'>Kef Schecter</a> </i>. Kanji-fied version created with Chat-GPT 4o.</td>
+        <td>Based on a <a href='http://www.lltvg.com/wiki/Super_Mario_Bros._3/Transcript'>transcript</a> created by <a href='http://www.lltvg.com/wiki/User:Furrykef'>Kef Schecter</a> . Kanji-fied version created with Chat-GPT 4o.</td>
         <td>Frizzil</td>
     </tr>
     <tr>
@@ -242,7 +242,7 @@ A complete list of decks in this repository, with store page links, current stat
         <td><font color="#96FF00">3&#8209;4</font>&nbsp;<sub>gpt4o</sub></td>
         <td>10</td>
         <td>10</td>
-        <td>Based on an amazing annotated <a href='http://www.lltvg.com/wiki/Super_Mario_RPG/Transcript'>transcript</a> by <i>Mew seeker</i>! Recommended to study only the 'In-Game Combined' deck and reference the transcript for everything else. (You might prefer to read it instead of playing.)</td>
+        <td>Based on an amazing annotated <a href='http://www.lltvg.com/wiki/Super_Mario_RPG/Transcript'>transcript</a> by <i>Mew seeker</i>! Recommended to study only the 'In-Game Combined' deck and reference the transcript for everything else.</td>
         <td>Frizzil</td>
     </tr>
     <tr>
