@@ -93,7 +93,7 @@ notes-and-sources: >-      # You must credit and link sources, if any. '>-' mark
 
         4. Make your changes:
 
-            * You *must* add or update an `info.yml` as described above!
+            * You *must* add or update an `info.yaml` as described above!
             * You *must not* include any direct or translated game text!
             * Place your CSVs in the appropriate game folder, making a new one if necessary.
             * If there are multiple CSVs, consider adding a `README.md` to help the user choose.
