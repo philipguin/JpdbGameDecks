@@ -1,7 +1,6 @@
 # Contributions
 
-Firstly, thanks for helping out!
-Japanese scripts are surprisingly hard to find, and quality decks can be difficult to build. Many will appreciate the convenience of having a pre-made deck for their favorite game, so thank you!
+Firstly, thanks for volunteering!
 
 To create and upload your deck, please do the following:
 
@@ -11,7 +10,7 @@ To create and upload your deck, please do the following:
 
     * Provide a very rough timeline. _Please do some research before making a commitment!_ Resources for a game often aren't available, and obtaining your own can be prohibitively time-consuming.
 
-    * If there are no issues, then your post will be given the label "approved" and you can safely begin working on your deck. (It's very unlikely it won't be approved, assuming you did everything correctly.)
+    * If there are no issues, then your post will be given the label "greenlit" and you can safely begin working on your deck. (It's very unlikely it won't be greenlit, assuming you did everything correctly.)
 
 3. Create the deck using [jpdb](https://jpdb.io).
 
@@ -31,7 +30,7 @@ To create and upload your deck, please do the following:
 
 5. Create an `info.yaml` for your deck:
 
-    Please read the column descriptions in <decks_status.md>, making your best guess for any values you can.
+    Please read the column descriptions in [here](decks_status.md), making your best guess for any values you can.
     The goal is to briefly inform users of anything they may want to know before using the deck.
     Keep notes concise and make sure to credit anyone who gathered the input text for your deck.
 
@@ -43,11 +42,11 @@ To create and upload your deck, please do the following:
 
 ```yaml
 name: Persona Before Time XXVII # Game title, omitting articles at the beginning (like "The").
-store-link: "https://store.steampowered.com/app/77777/PersonaBeforeTimeXXVII/" # Prefer Steam, then GOG, then whatever legal source.
+store-link: "https://store.steampowered.com/app/77777/blah/" # Prefer Steam, then GOG, then whatever legal source.
 deck-author: Your Name     # Must be identical to other decks you've submitted.
 difficulty: 5              # Use jpdb.io difficulty as reference, e.g. in Chat-GPT prompt.
 difficulty-source: gpt4o   # LLM used (e.g. Chat-GPT). Leave blank if difficulty gauged without.
-progress: complete         # "complete"/"100"/"100%" are special values, anything else gets displayed with the title in parenthesis.
+progress: complete         # "complete"/"100"/"100%" are special values, anything else is displayed with title in parenthesis.
 sortedness: 8              # Leave blank if you just can't tell.
 quality: 9                 # Make your best guess. E.g. start at 10 and deduct a point for every significant problem.
 notes-and-sources: >-      # You must credit and link sources, if any. '>-' marks a multi-line string that removes newlines.
@@ -109,7 +108,7 @@ notes-and-sources: >-      # You must credit and link sources, if any. '>-' mark
             ```
 
             If your `info.yaml` is invalid, the commit will fail with helpful error messages (hopefully).
-            To see what the resulting <decks_status.md> looks like without committing,
+            To see what the resulting [decks_status.md](decks_status.md) looks like without committing,
             run `pre-commit run gen-decks-status` in the root directory.
 
             Try to use multiple commits for unrelated changes, e.g. one commit per game added.
