@@ -87,8 +87,8 @@ A complete list of decks in this repository, with store page links, current stat
     </tr>
     <tr>
         <td><a href="https://store.steampowered.com/app/1671210/DELTARUNE/">Deltarune Chapter 1</a></td>
-        <td></td>
-        <td>2?</td>
+        <td><font color="#96FF00">4&#8209;5</font>&nbsp;<sub>gpt4o</sub></td>
+        <td>8</td>
         <td>8</td>
         <td></td>
         <td>Frizzil</td>
@@ -208,7 +208,7 @@ A complete list of decks in this repository, with store page links, current stat
     <tr>
         <td><a href="https://store.steampowered.com/app/391540/Undertale/">Undertale</a></td>
         <td><font color="#96FF00">3&#8209;4</font>&nbsp;<sub>gpt4o</sub></td>
-        <td>2?</td>
+        <td>2</td>
         <td>8</td>
         <td></td>
         <td>Frizzil</td>
