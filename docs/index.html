@@ -27,7 +27,7 @@ title: Home
                 var headerHtml = '<tr>'
                 var headerCells = rows[0].split(',');
                 for (var j = 0; j < headerCells.length; j++) {
-                    headers += '<th>' + headerCells[j] + '</th>';
+                    headerHtml += '<th>' + headerCells[j] + '</th>';
                 }
                 headerHtml += '</tr>'
                 $('#game-table thead').append(headerHtml);
