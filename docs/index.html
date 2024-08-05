@@ -47,6 +47,27 @@ title: Home
     table.dataTable th {
         font-weight: bold;
     }
+    /* Custom CSS for pagination arrows */
+	.dataTables_wrapper .dataTables_paginate .paginate_button {
+	    color: #e0e0e0 !important;
+	}
+	.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+	.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+	.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+	    color: #666666 !important; /* Disabled color */
+	}
+	.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+	    color: #ffffff !important;
+	    background-color: #333333 !important;
+	}
+	.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+	    color: #ffffff !important;
+	    background-color: #555555 !important;
+	}
+	.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+	    color: #ffffff !important;
+	    background-color: #444444 !important;
+	}
 </style>
 <script>
     $(document).ready(function() {
