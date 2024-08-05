@@ -45,14 +45,8 @@ title: Home
 </style>
 <script>
     $(document).ready(function() {
-        $.ajax({
-            url: '{{ "/game-decks.csv" | relative_url }}',
-            dataType: 'text',
-            success: function(data) {
-                $('#game-table').DataTable( {
-    				responsive: true,
-    			} );
-            }
-        });
+        $('#game-table').DataTable( {
+			responsive: true,
+		} );
     });
 </script>
