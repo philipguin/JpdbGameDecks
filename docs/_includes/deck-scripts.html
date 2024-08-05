@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.3/js/dataTables.min.js"></script>
+
+<style>
+    .table-container {
+        overflow-x: auto;
+        margin: 0 auto;
+        width: 100%;
+    }
+    table.dataTable {
+        width: 100% !important;
+        border-collapse: collapse;
+    }
+    table.dataTable thead {
+        background-color: #333;
+        color: #fff;
+    }
+    table.dataTable tbody tr {
+        background-color: #222;
+        color: #e0e0e0;
+    }
+    table.dataTable tbody tr:nth-child(even) {
+        background-color: #2a2a2a;
+    }
+    table.dataTable th,
+    table.dataTable td {
+        padding: 10px;
+        border: 1px solid #444;
+    }
+    table.dataTable th {
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        $('#game-table').DataTable( {
+			responsive: true,
+		} );
+    });
+</script>

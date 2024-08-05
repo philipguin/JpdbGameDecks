@@ -2,7 +2,7 @@
 
 An unofficial collection of [jpdb.io](https://jpdb.io) vocabulary/kanji decks for studying Japanese video game text!
 
-Before downloading, you can browse decks [here](decks_status.md) for status and quality information, as well as Steam page links.
+Before downloading, you can browse decks [here](https://philipguin.github.io/JpdbGameDecks) for status and quality information, as well as Steam page links.
 
 
 ## Usage
