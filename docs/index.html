@@ -73,7 +73,9 @@ title: Home
                     rowHtml += '</tr>';
                     $('#game-table tbody').append(rowHtml);
                 }
-                $('#game-table').DataTable();
+                $('#game-table').DataTable( {
+    				responsive: true,
+    			} );
             }
         });
     });
