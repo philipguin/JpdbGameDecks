@@ -3,4 +3,46 @@ layout: base
 title: Home
 ---
 
-Welcome!
+<h1>Game Decks</h1>
+<table id="game-table" class="display">
+    <thead>
+    	<!-- Headers will be populated here by JavaScript -->
+    </thead>
+    <tbody>
+        <!-- Data will be populated here by JavaScript -->
+    </tbody>
+</table>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '{{ "/game-decks.csv" | relative_url }}',
+            dataType: 'text',
+            success: function(data) {
+                var rows = data.split('\n');
+
+                var headerHtml = '<tr>'
+                var headerCells = rows[0].split(',');
+                for (var j = 0; j < headerCells.length; j++) {
+                    headers += '<th>' + headerCells[j] + '</th>';
+                }
+                headerHtml += '</tr>'
+                $('#game-table thead').append(headerHtml);
+
+                for (var i = 1; i < rows.length; i++) {
+                    var cells = rows[i].split(',');
+                    var rowHtml = '<tr>';
+                    for (var j = 0; j < cells.length; j++) {
+                        rowHtml += '<td>' + cells[j] + '</td>';
+                    }
+                    rowHtml += '</tr>';
+                    $('#game-table tbody').append(rowHtml);
+                }
+                $('#game-table').DataTable();
+            }
+        });
+    });
+</script>
