@@ -1,9 +1,10 @@
 repos:
   - repo: local
     hooks:
+
       - id: gen-decks-status
         name: Generate Decks Status Table
         entry: bash scripts/precommit_gen_decks_status.sh
         language: system
-        files: "/info.(yml|yaml)$|^scripts/gen_decks_status.py$|^scripts/decks_status_header.md$"
+        files: "/info.(yml|yaml)$|^scripts/gen_decks_status.py$"
         stages: [commit]
