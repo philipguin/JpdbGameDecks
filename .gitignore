@@ -1,0 +1,14 @@
+# Log files
+*.log
+
+# Temporary files and directories
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*.tmp
+*.temp
+*.pid
+*.seed
+*.backup
+*.orig

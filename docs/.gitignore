@@ -1,0 +1,12 @@
+# Jekyll cache and generated files
+.jekyll-cache/
+.sass-cache/
+_site/
+.jekyll-metadata
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Configuration backup
+_config.yml~
