@@ -4,7 +4,7 @@ Firstly, thanks for volunteering!
 
 To create and upload your deck, please do the following:
 
-1. Check [here](decks_status.md) to ensure it doesn't already exist and isn't already being created by someone.
+1. Check [here](https://philipguin.github.io/JpdbGameDecks) to ensure it doesn't already exist and isn't already being created by someone.
 
 2. [Open an issue](https://github.com/philipguin/JpdbGameDecks/issues) with title "Contribution: \<Game Names\>"
 
@@ -30,7 +30,7 @@ To create and upload your deck, please do the following:
 
 5. Create an `info.yaml` for your deck:
 
-    Please read the column descriptions in [here](decks_status.md), making your best guess for any values you can.
+    Please read the column descriptions in [here](https://philipguin.github.io/JpdbGameDecks), making your best guess for any values you can.
     The goal is to briefly inform users of anything they may want to know before using the deck.
     Keep notes concise and make sure to credit anyone who gathered the input text for your deck.
 
@@ -108,7 +108,7 @@ notes-and-sources: >-      # You must credit and link sources, if any. '>-' mark
             ```
 
             If your `info.yaml` is invalid, the commit will fail with helpful error messages (hopefully).
-            To see what the resulting [decks_status.md](decks_status.md) looks like without committing,
+            To see what the resulting table entry's [HTML](docs/_includes/deck-table.html) looks like without committing,
             run `pre-commit run gen-decks-status` in the root directory.
 
             Try to use multiple commits for unrelated changes, e.g. one commit per game added.
