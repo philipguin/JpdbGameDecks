@@ -16,8 +16,8 @@ To create and upload your deck, please do the following:
 
     * [Deck-from-text](https://jpdb.io/new_deck_from_text) is the preferred method, since this includes frequency information and the total word count.
      (We potentially lose sorting information this way, but it's well worth the time saved over manual entry.)
-     However, it is _strongly recommended_ you sanitize the input text before using it. This means applying regex filters to:
-     
+     However, it is _strongly recommended_ you sanitize the input text before using it. This means applying [regex](https://www.regular-expressions.info/) filters to:
+
         * remove scripting commands
         * remove line breaks in the middle of sentences (since these cause JPDB to choke)
         * remove English annotations
