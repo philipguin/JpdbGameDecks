@@ -72,7 +72,7 @@ $(document).ready(function() {
             '#FFFF00', '#FFC800', '#FF9600', '#FF6400', '#FF3200', '#FF0000',
         ]
         let color = difficultyColors[getDifficultyIndex(difficulty)];
-        if (typeof difficulty === 'string') difficulty = difficulty.replace("-", "&#8209;"); // non-breaking hyphen
+        if (typeof difficulty === 'string') difficulty = difficulty.replaceAll("-", "&#8209;"); // non-breaking hyphen
 
         difficulty = `<font color="${color}">${difficulty}</font>`;
         if (diffSrc) {
@@ -92,9 +92,14 @@ $(document).ready(function() {
     }
 
     function formatMoreInfo(template, childData) {
+        let deck_author = childData[0] || 'Unknown'
+
+        let notes = childData[1] || ''
+        notes = notes.split(/\\n\s*\\n/).map(x => `<p>${x.replaceAll('\\n', ' ')}</p>`).join('');
+
         return template
-            .replace('\{\{deck_author\}\}', childData[0] || 'Unknown')
-            .replace('\{\{notes\}\}', childData[1] || '')
+            .replaceAll('\{\{deck_author\}\}', deck_author)
+            .replaceAll('\{\{notes\}\}', notes)
         ;
     }
 
@@ -103,15 +108,19 @@ $(document).ready(function() {
         dataType: 'text',
         success: function(data) {
             let lines = data.split('\n').map(line => line.split('\t'));
-            let tableRows = lines.map(line => {
-                return [
-                    '',
-                    formatName(line[0], line[1]),
-                    formatLinks(line[2]),
-                    formatDifficulty(line[3], line[4]),
-                    formatSortedness(line[5]),
-                    formatQuality(line[6]),
-                ];
+            let tableRows = lines.map((line, i) => {
+                try {
+                    return [
+                        '',
+                        formatName(line[0], line[1]),
+                        formatLinks(line[2]),
+                        formatDifficulty(line[3], line[4]),
+                        formatSortedness(line[5]),
+                        formatQuality(line[6]),
+                    ];
+                } catch(e) {
+                    console.log(`Exception while formatting row ${i}: $e`);
+                }
             });
             let tableRowChildren = lines.map(line => {
                 return line.slice(NUM_DISPLAY_COLUMNS);

@@ -55,9 +55,7 @@ def output_tsv_decks(output_file, yaml_infos):
         notes_and_sources = info.get('notes-and-sources') or ''
 
         links_out = '' if not store_links else '|'.join(store_links)
-
-        if is_first: is_first = False
-        else: output_file.write('\n')
+        notes_and_sources = notes_and_sources.replace('\n', '\\n').replace('\t', '  ')
 
         row = [
             name,
@@ -70,6 +68,8 @@ def output_tsv_decks(output_file, yaml_infos):
             deck_author,
             notes_and_sources, # most likely to cause format error, so we'll put it last
         ]
+        if is_first: is_first = False
+        else: output_file.write('\n')
         output_file.write('\t'.join(str(x) for x in row))
 
 def main():
