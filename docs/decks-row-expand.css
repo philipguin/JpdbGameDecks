@@ -1,0 +1,41 @@
+.row-child {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px;
+    box-sizing: border-box;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: #aaa;
+}
+.row-child strong {
+    font-weight: 500;
+}
+.row-child-info {
+    flex: 0 0 190px;
+    margin-left: 50px; /* To better align with expand widget above. */
+    padding-right: 10px;
+}
+.row-child-notes {
+    flex-grow: 1;
+    padding-left: 20px;
+    border-left: 1px solid #404040;
+}
+
+.info-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.info-table tr {
+    background: transparent !important;
+}
+.info-table td {
+    border: none !important;
+    padding: 2px 5px !important;
+    vertical-align: top;
+    background: transparent !important;
+    color: #aaa;
+}

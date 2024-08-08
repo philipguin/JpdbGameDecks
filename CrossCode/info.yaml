@@ -1,5 +1,7 @@
 name: CrossCode
-store-link: https://store.steampowered.com/app/368340/CrossCode/
+store-links:
+  - "https://store.steampowered.com/app/368340/CrossCode/"
+  - "https://www.gog.com/en/game/crosscode"
 deck-author: Frizzil
 difficulty: 3-4
 difficulty-source: gpt4o

@@ -1,5 +1,6 @@
 name: Rabi-Ribi
-store-link: "https://store.steampowered.com/app/400910/RabiRibi/"
+store-links:
+  - "https://store.steampowered.com/app/400910/RabiRibi/"
 deck-author: Frizzil
 difficulty: 3
 difficulty-source: gpt4o

@@ -1,5 +1,6 @@
 name: Sid Meier's Civilization VI
-store-link: "https://store.steampowered.com/app/289070/Sid_Meiers_Civilization_VI/"
+store-links:
+  - "https://store.steampowered.com/app/289070/Sid_Meiers_Civilization_VI/"
 deck-author: Frizzil
 difficulty: 6-7
 difficulty-source: gpt4o

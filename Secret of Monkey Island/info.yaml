@@ -1,5 +1,7 @@
 name: The Secret of Monkey Island
-store-link: "https://store.steampowered.com/app/32360/The_Secret_of_Monkey_Island_Special_Edition/"
+store-links:
+  - "https://store.steampowered.com/app/32360/The_Secret_of_Monkey_Island_Special_Edition/"
+  - "https://www.gog.com/en/game/the_secret_of_monkey_island_special_edition"
 deck-author: Frizzil
 difficulty: 3-4
 difficulty-source: gpt4o

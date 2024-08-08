@@ -1,5 +1,6 @@
 name: Mega Man 7
-store-link: "https://store.steampowered.com/app/495050/Mega_Man_Legacy_Collection_2/"
+store-links:
+  - "https://store.steampowered.com/app/495050/Mega_Man_Legacy_Collection_2/"
 deck-author: Frizzil
 difficulty: 3-4
 difficulty-source: gpt4o

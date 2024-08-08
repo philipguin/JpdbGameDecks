@@ -1,5 +1,7 @@
 name: Undertale
-store-link: "https://store.steampowered.com/app/391540/Undertale/"
+store-links:
+  - "https://store.steampowered.com/app/391540/Undertale/"
+  - "https://www.gog.com/en/game/undertale"
 deck-author: Frizzil
 difficulty: 3-4
 difficulty-source: gpt4o

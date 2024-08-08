@@ -1,3 +1,10 @@
 #!/bin/bash
+
 python scripts/gen_decks_status.py
-git add docs/_includes/deck-metrics.html docs/_includes/deck-table.html 
+status=$?
+if [ $status -ne 0 ]; then
+  echo "'python scripts/gen_decks_status.py' failed ($status)"
+  exit $status
+fi
+
+git add docs/_includes/deck-metrics.html docs/decks.tsv

@@ -40,7 +40,7 @@ def output_html_metrics(output_file, yaml_infos):
         output_file.write(f'  <li>{metric}</li>\n')
     output_file.write("</ul>\n")
 
-def output_html_table(output_file, yaml_infos):
+def output_tsv_decks(output_file, yaml_infos):
 
     difficulty_colors = [
         '#FFFFFF',
@@ -82,23 +82,10 @@ def output_html_table(output_file, yaml_infos):
         
         raise ValueError(f'Difficulty format not recognized: "{value}"')
 
-
-    output_file.write("""
-<thead>
-    <tr>
-        <th>Game & Store&nbsp;Page</th>
-        <th>Difficulty</th>
-        <th>Sortedness</th>
-        <th>Quality</th>
-        <th>Notes&nbsp&&nbspSources</th>
-        <th>Contributor</th>
-    </tr>
-</thead>
-<tbody>""") # Lots of fanagling above to get columns at ideal width... break here, don't break there, etc.
-
+    is_first = True
     for _, info in yaml_infos:
         name = info.get('name') or ''
-        store_link = info.get('store-link')
+        store_links = info.get('store-links')
         difficulty = info.get('difficulty')
         difficulty_source = info.get('difficulty-source')
         progress = info.get('progress') or '??%'
@@ -107,8 +94,13 @@ def output_html_table(output_file, yaml_infos):
         notes_and_sources = info.get('notes-and-sources') or '' # never allow None
         deck_author = info.get('deck-author') or ''
 
-        title = name if not store_link else f'<a href="{store_link}">{name}</a>'
+        if type(quality) is str and quality.endswith('?'): quality = f'<font color="#f8f">{quality[:-1]}</font>'
+        if type(sortedness) is str and sortedness.endswith('?'): sortedness = f'<font color="#f8f">{sortedness[:-1]}</font>'
+
+        title = name
         if not is_progress_complete(progress): title = f'{title} ({progress})'
+
+        links_out = '' if not store_links else ';'.join(store_links)
 
         if difficulty is None:
             difficulty = ''
@@ -119,17 +111,19 @@ def output_html_table(output_file, yaml_infos):
             if difficulty_source:
                 difficulty = f'{difficulty}&nbsp;<sub>{difficulty_source}</sub>'
 
-        output_file.write(f"""
-    <tr>
-        <td>{title}</td>
-        <td>{difficulty}</td>
-        <td>{sortedness}</td>
-        <td>{quality}</td>
-        <td>{notes_and_sources}</td>
-        <td>{deck_author}</td>
-    </tr>""") # can't have multiple line-endings between these, or Markdown parsing chokes
+        if is_first: is_first = False
+        else: output_file.write('\n')
 
-    output_file.write("\n</tbody>")
+        row = [
+            title,
+            links_out,
+            difficulty,
+            sortedness,
+            quality,
+            notes_and_sources,
+            deck_author,
+        ]
+        output_file.write('\t'.join(str(x) for x in row))
 
 def main():
     base_dir = os.getcwd()
@@ -154,17 +148,17 @@ def main():
         print("All info.yml files are valid. Generating metrics and composite table...")
         yaml_infos.sort(key=lambda x: x[0])
 
+        if not os.path.exists('docs/_includes'): os.makedirs('docs/_includes')
 
         with open('docs/_includes/deck-metrics.html', 'w', encoding='utf-8') as output_file:
             output_html_metrics(output_file, yaml_infos)
 
         print("Metrics written to docs/_includes/deck-metrics.html")
 
-
-        with open('docs/_includes/deck-table.html', 'w', encoding='utf-8') as output_file:
-            output_html_table(output_file, yaml_infos)
+        with open('docs/decks.tsv', 'w', encoding='utf-8') as output_file:
+            output_tsv_decks(output_file, yaml_infos)
         
-        print("Table written to docs/_includes/deck-table.html")
+        print("Table written to docs/decks.tsv")
 
 
 if __name__ == "__main__":

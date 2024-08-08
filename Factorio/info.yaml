@@ -1,5 +1,7 @@
 name: Factorio
-store-link: "https://store.steampowered.com/app/427520/Factorio/"
+store-links:
+  - "https://store.steampowered.com/app/427520/Factorio/"
+  - "https://www.gog.com/en/game/factorio"
 deck-author: Frizzil
 difficulty: 5
 difficulty-source: gpt4o

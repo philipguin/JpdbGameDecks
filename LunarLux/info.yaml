@@ -1,5 +1,7 @@
 name: LunarLux
-store-link: "https://store.steampowered.com/app/1932680/LunarLux/"
+store-links:
+  - "https://store.steampowered.com/app/1932680/LunarLux/"
+  - "https://www.gog.com/en/game/lunarlux"
 deck-author: Frizzil
 difficulty: 4
 difficulty-source: gpt4o

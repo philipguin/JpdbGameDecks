@@ -1,5 +1,6 @@
 name: "TMNT: Turtles in Time"
-store-link: "https://store.steampowered.com/app/1659600/Teenage_Mutant_Ninja_Turtles_The_Cowabunga_Collection/"
+store-links:
+  - "https://store.steampowered.com/app/1659600/Teenage_Mutant_Ninja_Turtles_The_Cowabunga_Collection/"
 deck-author: Frizzil
 difficulty: 2-3
 difficulty-source: gpt4o

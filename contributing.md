@@ -42,7 +42,8 @@ To create and upload your deck, please do the following:
 
 ```yaml
 name: Persona Before Time XXVII # Game title, omitting articles at the beginning (like "The").
-store-link: "https://store.steampowered.com/app/77777/blah/" # Prefer Steam, then GOG, then whatever legal source.
+store-links:               # Prefer Steam, then GOG, then whatever legal source.
+  - "https://store.steampowered.com/app/77777/PersonaBeforeTimeXXVII/"
 deck-author: Your Name     # Must be identical to other decks you've submitted.
 difficulty: 5              # Use jpdb.io difficulty as reference, e.g. in Chat-GPT prompt.
 difficulty-source: gpt4o   # LLM used (e.g. Chat-GPT). Leave blank if difficulty gauged without.

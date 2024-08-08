@@ -1,5 +1,7 @@
 name: Cave Story
-store-link: https://store.steampowered.com/app/200900/Cave_Story/
+store-links:
+  - "https://store.steampowered.com/app/200900/Cave_Story/"
+  - "https://www.gog.com/en/game/cave_story"
 deck-author: Frizzil
 difficulty: 3-4
 difficulty-source: gpt4o
