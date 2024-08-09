@@ -90,7 +90,10 @@ notes-and-sources: >-      # You must credit and link sources, if any. '>-' mark
 
             ```bash
             pip install -r requirements.txt
+            pre-commit install
             ```
+
+            (`pre-commit` is required so that any change to an `info.yaml` file will propagate to the website, i.e. by automatically updating `docs/decks.tsv`.)
 
         3. Create a new branch:
 
@@ -106,6 +109,15 @@ notes-and-sources: >-      # You must credit and link sources, if any. '>-' mark
             * If there are multiple CSVs, consider adding a `README.md` to help the user choose.
             * You can add any useful python scripts or resources for deck generation to an adjacent `src` folder in the game directory.
                 There are general purpose scripts under `scripts/` as well.
+            * You can preview any changes to `info.yaml` files by [setting up jekyll locally](https://jekyllrb.com/docs/installation/) then running:
+
+                ```bash
+                git add --all
+                pre-commit run gen-decks-status --verbose
+                jekyll serve
+                ```
+
+                Then open the link jekyll spits out.
 
         5. Commit your changes:
 
