@@ -168,4 +168,22 @@ $(document).ready(function() {
             });
         }
     });
+
+    $.ajax({
+        url: 'deck-metrics.tsv',
+        dataType: 'text',
+        success: function(data) {
+            let ul = document.createElement('ul');
+            for (let line of data.split('\n')) {
+                if (line.trim()) {
+                    let cells = line.split('\t');
+                    let li = document.createElement('li');
+                    li.textContent = `${cells[0]}: ${cells[1]}`;
+                    ul.appendChild(li);
+                }
+            }
+            document.getElementById('metrics').appendChild(ul);
+        }
+    });
+
 });

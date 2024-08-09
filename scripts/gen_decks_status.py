@@ -22,7 +22,7 @@ def is_progress_complete(x): # NOTE: logic duplicated in decks.js
     x = x.lower()
     return x == 'complete' or x == '100' or x == '100%'
 
-def output_html_metrics(output_file, yaml_infos):
+def output_tsv_metrics(output_file, yaml_infos):
 
     count_complete = sum(is_progress_complete(x.get('progress', '')) for _, x in yaml_infos)
     count_wip = len(yaml_infos) - count_complete
@@ -31,14 +31,17 @@ def output_html_metrics(output_file, yaml_infos):
     contrib_names = list(k for k, _ in sorted(contributors.items(), key=lambda x: -x[1])) # from most to least decks
 
     metrics = [
-        f'Decks Complete: {count_complete}',
-        f'Decks In-Progress: {count_wip}',
-        f'Contributors ({len(contributors)}): {", ".join(contrib_names)}',
+        ['Decks Complete', str(count_complete)],
+        ['Decks In-Progress', str(count_wip)],
+        ['Contributors', ", ".join(contrib_names)],
     ]
-    output_file.write("<ul>\n")
+
+    is_first = True
     for metric in metrics:
-        output_file.write(f'  <li>{metric}</li>\n')
-    output_file.write("</ul>\n")
+        if is_first: is_first = False
+        else: output_file.write('\n')
+
+        output_file.write(metric[0] + '\t' + metric[1])
 
 def output_tsv_decks(output_file, yaml_infos):
 
@@ -97,8 +100,8 @@ def main():
 
         if not os.path.exists('docs/_includes'): os.makedirs('docs/_includes')
 
-        with open('docs/_includes/deck-metrics.html', 'w', encoding='utf-8') as output_file:
-            output_html_metrics(output_file, yaml_infos)
+        with open('docs/deck-metrics.tsv', 'w', encoding='utf-8') as output_file:
+            output_tsv_metrics(output_file, yaml_infos)
 
         print("Metrics written to docs/_includes/deck-metrics.html")
 
