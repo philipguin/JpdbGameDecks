@@ -1,0 +1,14 @@
+name: Final Fantasy 8
+store-links:
+  - "https://store.steampowered.com/app/1026680/FINAL_FANTASY_VIII__REMASTERED/"
+deck-author: XwipeoutX
+difficulty: 4-5
+difficulty-source: gpt4o
+progress: complete
+sortedness: 8
+quality: 8
+notes-and-sources: >-
+  Based on this
+  <a href="http://aizenn.web.fc2.com/talk/ff-serifu.html">transcript</a>, assuming a party of Squall, Zell, Irvine.
+  There may be section and name markers that inflate the frequencies of those.  Text is sorted by progression order
+  for mandatory dialogue, with a section at the end for random extra conversation.
