@@ -106,6 +106,7 @@ $(document).ready(function() {
     $.ajax({
         url: 'decks.tsv',
         dataType: 'text',
+        cache: false,
         success: function(data) {
             let lines = data.split('\n').map(line => line.split('\t'));
             let tableRows = lines.map((line, i) => {
@@ -172,6 +173,7 @@ $(document).ready(function() {
     $.ajax({
         url: 'deck-metrics.tsv',
         dataType: 'text',
+        cache: false,
         success: function(data) {
             let ul = document.createElement('ul');
             for (let line of data.split('\n')) {
