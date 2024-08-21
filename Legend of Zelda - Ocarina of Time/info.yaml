@@ -5,8 +5,8 @@ difficulty: 5-6
 difficulty-source: gpt4o
 progress: complete
 sortedness: 5
-quality: 9
+quality: 8
 notes-and-sources: >-
   Sourced from <a href="https://www.zeldalegends.net/files/emulation/dumps/zelda6/japan/z6dump(jp).html">this dump</a> by David Butler for zeldalegends.net.
   (Website is inconsistently down as of August 2024.)
-  Sortedness ranked by gpt4o (or at least it tried).
+  Sortedness ranked by Chat-GPT 4o.
