@@ -1,11 +1,17 @@
 name: "The Legend of Zelda: Wind Waker"
 store-links: []
 deck-author: Frizzil
-difficulty:
-difficulty-source:
+difficulty: 3-4
+difficulty-source: gpt4o
 progress: complete
-sortedness: 1?
-quality: 6
+sortedness: 2
+quality: 8
 notes-and-sources: >-
   Sourced from <a href="https://www.zeldalegends.net/view/emulation/dumps/tww/tww_JAP.html">this dump</a> by Iron Knuckle for zeldalegends.net.
   (Website is inconsistently down as of August 2024.)
+
+  The final text had plenty of script macros left in,
+  but I tried to reduce them to minimal "understandable tokens" for the JPDB parser,
+  so it could (hopefully) identify other words correctly.
+
+  Input text is sorted mostly by function, starting with UI then tutorial, with minimal story-related order.
