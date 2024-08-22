@@ -1,0 +1,14 @@
+name: "The Legend of Zelda: Twilight Princess"
+store-links: []
+deck-author: Frizzil
+difficulty: 4
+difficulty-source: gpt4o
+progress: complete
+sortedness: 6?
+quality: 8
+notes-and-sources: >-
+  Sourced from <a href="https://www.zeldalegends.net/view/emulation/dumps/tp/Japan/TP_Japanese.html">this dump</a> by Iron Knuckle for zeldalegends.net.
+  (Website is inconsistently down as of August 2024.)
+
+  The text is too large to reliably assess sortedness with any LLM I have access to,
+  but the portion I fed into Chat-GPT 4o was at least self-sorted.
