@@ -28,7 +28,7 @@ def output_tsv_metrics(output_file, yaml_infos):
     count_wip = len(yaml_infos) - count_complete
     
     contributors = Counter(x.get('deck-author', '') for _, x in yaml_infos)
-    contrib_names = list(k for k, _ in sorted(contributors.items(), key=lambda x: -x[1])) # from most to least decks
+    contrib_names = list(f'{k} ({count})' for k, count in sorted(contributors.items(), key=lambda x: -x[1])) # from most to least decks
 
     metrics = [
         ['Decks Complete', str(count_complete)],
