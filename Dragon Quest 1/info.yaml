@@ -2,6 +2,7 @@ name: Dragon Quest 1
 store-links:
   - "https://store.steampowered.com/app/2893570/DRAGON_QUEST_I__II_HD2D_Remake/"
 deck-author: Frizzil
+exclude-filter: '.*Combined\).*'
 difficulty: 2-3
 difficulty-source: gpt4o
 progress: complete

@@ -1,6 +1,7 @@
 name: Super Mario World
 store-links: []
 deck-author: Frizzil
+include-filter: '.*Kanji.*'
 difficulty: 2
 difficulty-source: gpt4o
 progress: complete

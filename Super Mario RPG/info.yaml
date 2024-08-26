@@ -1,6 +1,8 @@
 name: Super Mario RPG
 store-links: []
 deck-author: Frizzil
+include-filter: '.*(Enemies|Items|Kanji).*'
+exclude-filter: '^split/.*'
 difficulty: 3-4
 difficulty-source: gpt4o
 progress: complete

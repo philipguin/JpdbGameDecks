@@ -12,9 +12,9 @@
     font-weight: 500;
 }
 .row-child-info {
-    flex: 0 0 190px;
-    margin-left: 50px; /* To better align with expand widget above. */
-    padding-right: 10px;
+    flex: 0 0 182px;
+    margin-left: 10px;
+    padding-right: 30px;
 }
 .row-child-notes {
     flex-grow: 1;
@@ -38,4 +38,7 @@
     vertical-align: top;
     background: transparent !important;
     color: #aaa;
+}
+.info-col1 {
+    text-align: right;
 }

@@ -17,8 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 $(document).ready(function() {
 
-    const NUM_DISPLAY_COLUMNS = 7;
-
     function isProgressComplete(x) { // NOTE: logic duplicated in gen_decks_status.py
         x = x.toLowerCase();
         return x === 'complete' || x === '100' || x === '100%';
@@ -91,14 +89,29 @@ $(document).ready(function() {
         return str;
     }
 
-    function formatMoreInfo(template, childData) {
-        let deck_author = childData[0] || 'Unknown'
+    function formatUniqueWords(str) {
+        return str;
+    }
 
-        let notes = childData[1] || ''
+    // function formatTotalWords(str, uniqueWordsStr) {
+    //     if (Math.round(str) <= Math.round(uniqueWordsStr)) return ""; // round converts to number first
+    //     return `<font size="2">${str}</font>`;
+    // }
+
+    function formatMoreInfo(template, childData) {
+        let unique_words = childData[7] || 'Unknown'
+        let total_words = childData[8] || 'Unknown'
+        let deck_author = childData[9] || 'Unknown'
+
+        if (Math.round(total_words) <= Math.round(unique_words)) total_words = "N/A";
+
+        let notes = childData[10] || ''
         notes = notes.split(/\\n\s*\\n/).map(x => `<p>${x.replaceAll('\\n', ' ')}</p>`).join('');
 
         return template
             .replaceAll('\{\{deck_author\}\}', deck_author)
+            .replaceAll('\{\{unique_words\}\}', unique_words)
+            .replaceAll('\{\{total_words\}\}', total_words)
             .replaceAll('\{\{notes\}\}', notes)
         ;
     }
@@ -118,13 +131,12 @@ $(document).ready(function() {
                         formatDifficulty(line[3], line[4]),
                         formatSortedness(line[5]),
                         formatQuality(line[6]),
+                        formatUniqueWords(line[7]),
+                        //formatTotalWords(line[8], line[7]),
                     ];
                 } catch(e) {
                     console.log(`Exception while formatting row ${i}: $e`);
                 }
-            });
-            let tableRowChildren = lines.map(line => {
-                return line.slice(NUM_DISPLAY_COLUMNS);
             });
             let table = $('#game-table').DataTable({
     			responsive: true,
@@ -149,6 +161,9 @@ $(document).ready(function() {
                     }, {
                         width: '25px',
                         type: 'html-num',
+                    }, {
+                        width: '25px',
+                        type: 'html-num',
                     }
                 ],
                 data: tableRows,
@@ -163,7 +178,7 @@ $(document).ready(function() {
                     if (row.child.isShown()) {
                         row.child.hide();
                     } else {
-                        row.child(formatMoreInfo(template, tableRowChildren[row.index()])).show();
+                        row.child(formatMoreInfo(template, lines[row.index()])).show();
                     }
                 });
             });

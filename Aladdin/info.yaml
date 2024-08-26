@@ -1,6 +1,7 @@
 name: Aladdin
 store-links: []
 deck-author: Frizzil
+include-filter: '.*Kanji.*'
 difficulty: 3-4
 difficulty-source: gpt4o
 progress: complete

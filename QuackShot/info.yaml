@@ -1,6 +1,7 @@
 name: QuackShot
 store-links: []
 deck-author: Frizzil
+include-filter: '.*Kanji.*'
 difficulty: 2-3
 difficulty-source: gpt4o
 progress: complete

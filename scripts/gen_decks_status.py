@@ -1,6 +1,7 @@
 import os
 import yaml
 import re
+import csv
 from collections import Counter
 
 def validate_yaml(yaml_file):
@@ -43,10 +44,18 @@ def output_tsv_metrics(output_file, yaml_infos):
 
         output_file.write(metric[0] + '\t' + metric[1])
 
+def accumulate_csv_counts(counter, csv_path):
+    with open(csv_path, 'r', newline='') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            key = (row[0], row[1])
+            count = int(row[2])
+            counter[key] += count
+
 def output_tsv_decks(output_file, yaml_infos):
 
     is_first = True
-    for _, info in yaml_infos:
+    for game_dir, info in yaml_infos:
         name = info.get('name') or ''
         progress = info.get('progress') or '??%'
         store_links = info.get('store-links')
@@ -56,9 +65,36 @@ def output_tsv_decks(output_file, yaml_infos):
         quality = info.get('quality', '') or ''
         deck_author = info.get('deck-author') or ''
         notes_and_sources = info.get('notes-and-sources') or ''
+        include_filter = info.get('include-filter')
+        exclude_filter = info.get('exclude-filter')
 
         links_out = '' if not store_links else '|'.join(store_links)
         notes_and_sources = notes_and_sources.replace('\n', '\\n').replace('\t', '  ')
+
+        include_pattern = re.compile(include_filter) if include_filter else None
+        exclude_pattern = re.compile(exclude_filter) if exclude_filter else None
+
+        word_counts = Counter()
+        for root, _, files in os.walk(game_dir):
+            root = root.replace('\\', '/')
+            if '/src/' in root or root.endswith('/src'): continue
+            
+            for file in files:
+                if not file.endswith('.csv'): continue
+
+                file_path = os.path.join(root, file)
+                file_path_test = os.path.relpath(file_path, game_dir).replace('\\', '/').lstrip('./')
+
+                is_match = True
+                if include_pattern and not include_pattern.fullmatch(file_path_test): is_match = False
+                elif exclude_pattern and exclude_pattern.fullmatch(file_path_test): is_match = False
+                if not is_match: continue
+
+                accumulate_csv_counts(word_counts, file_path)
+
+        unique_word_count = len(word_counts)
+        word_count = word_counts.total()
+        #print(f'{game_dir}:\t{unique_word_count}\t{word_count}')
 
         row = [
             name,
@@ -68,6 +104,8 @@ def output_tsv_decks(output_file, yaml_infos):
             difficulty_source,
             sortedness,
             quality,
+            unique_word_count,
+            word_count,
             deck_author,
             notes_and_sources, # most likely to cause format error, so we'll put it last
         ]
@@ -80,12 +118,18 @@ def main():
     yaml_infos = []
     invalid_files = []
 
-    for root, dirs, files in os.walk(base_dir):
-        for file in files:
+    excluded_dirs = set(['docs', 'scripts'])
+
+    for root in os.listdir(base_dir):
+        if not os.path.isdir(root): continue
+        if root.startswith('.'): continue
+        if root in excluded_dirs: continue
+
+        for file in os.listdir(root):
             if file == 'info.yml' or file == 'info.yaml':
                 file_path = os.path.join(root, file)
                 if validate_yaml(file_path):
-                    yaml_infos.append((file_path, scrape_info(file_path)))
+                    yaml_infos.append((root, scrape_info(file_path)))
                 else:
                     invalid_files.append(file_path)
 
