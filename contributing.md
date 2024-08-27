@@ -41,7 +41,7 @@ To create and upload your deck, please do the following:
     Keep notes concise and make sure to credit anyone who gathered the input text for your deck.
 
     Only `name` and `progress` are absolutely mandatory.
-    `difficulty-source` and `notes-and-sources` may be left blank if appropriate. 
+    `difficulty-source`, `include-filter` and `exclude-filter` may be left blank if appropriate. 
     Everything else _can_ be blank, but you better have a good reason why!
 
     Example file:
@@ -51,6 +51,8 @@ name: Persona Before Time XXVII # Game title, omitting articles at the beginning
 store-links:               # Prefer Steam, then GOG, then whatever legal source.
   - "https://store.steampowered.com/app/77777/PersonaBeforeTimeXXVII/"
 deck-author: Your Name     # Must be identical to other decks you've submitted.
+include-filter: '.*Kanji.*'   # Regexes for file paths relative to game dir. If provided, CSVs must match (or not)
+exclude-filter: 'alt_csvs/.*' #  to be included in aggregate statistics (e.g. Unique Words).
 difficulty: 5              # Use jpdb.io difficulty as reference, e.g. in Chat-GPT prompt.
 difficulty-source: gpt4o   # LLM used (e.g. Chat-GPT). Leave blank if difficulty gauged without.
 progress: complete         # "complete"/"100"/"100%" are special values, anything else is displayed with title in parenthesis.
