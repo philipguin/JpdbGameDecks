@@ -74,6 +74,7 @@ def output_tsv_decks(output_file, yaml_infos):
         include_pattern = re.compile(include_filter) if include_filter else None
         exclude_pattern = re.compile(exclude_filter) if exclude_filter else None
 
+        deck_paths = []
         word_counts = Counter()
         for root, _, files in os.walk(game_dir):
             root = root.replace('\\', '/')
@@ -85,12 +86,13 @@ def output_tsv_decks(output_file, yaml_infos):
                 file_path = os.path.join(root, file)
                 file_path_test = os.path.relpath(file_path, game_dir).replace('\\', '/').lstrip('./')
 
+                deck_paths.append(file_path.replace('\\', '/').replace('|', '\\|'))
+
                 is_match = True
                 if include_pattern and not include_pattern.fullmatch(file_path_test): is_match = False
                 elif exclude_pattern and exclude_pattern.fullmatch(file_path_test): is_match = False
-                if not is_match: continue
-
-                accumulate_csv_counts(word_counts, file_path)
+                if is_match:
+                    accumulate_csv_counts(word_counts, file_path)
 
         unique_word_count = len(word_counts)
         word_count = word_counts.total()
@@ -107,6 +109,7 @@ def output_tsv_decks(output_file, yaml_infos):
             unique_word_count,
             word_count,
             deck_author,
+            '|'.join(deck_paths),
             notes_and_sources, # most likely to cause format error, so we'll put it last
         ]
         if is_first: is_first = False

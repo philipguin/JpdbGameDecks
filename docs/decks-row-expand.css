@@ -39,6 +39,40 @@
     background: transparent !important;
     color: #aaa;
 }
+.info-col0 {
+}
 .info-col1 {
     text-align: right;
+}
+.info-link-list {
+    width: 100%;
+    margin: 20px auto;
+    border-spacing: 0; /* Remove spacing in table */
+}
+.info-link-list li {
+    margin: 10px 0;
+}
+
+.info-link-btn {
+    width: 100%;
+    padding: 4px;
+    background-color: #1e1e1e; /* Subtle dark gray */
+    color: #e0e0e0; /* Light gray text */
+    border: 1px solid #333; /* Slightly lighter border */
+    border-radius: 5px; /* Rounded corners */
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.info-link-btn:hover {
+    background-color: #292929; /* Slightly lighter on hover */
+    border-color: #555; /* Change border color on hover */
+}
+.info-link-btn:active {
+    background-color: #333; /* Darken on click */
+    border-color: #666;
+}
+.info-link-btn:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2); /* Custom focus outline */
 }

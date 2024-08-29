@@ -1,12 +1,20 @@
 <div class="row-child">
     <div class="row-child-info">
         <table class="info-table">
-            <tr><td class="info-col0"><strong>Contributor:</strong></td><td class="info-col1">{{deck_author}}</td></tr>
-            <tr><td class="info-col0"><strong>Unique Words:</strong></td><td class="info-col1">{{unique_words}}</td></tr>
-            <tr><td class="info-col0"><strong>Total Words:</strong></td><td class="info-col1">{{total_words}}</td></tr>
+            {{#info_table}}
+            <tr>
+                <td class="info-col0"><strong>{{title}}:</strong></td>
+                <td class="info-col1">{{value}}</td>
+            </tr>
+            {{/info_table}}
         </table>
+        <div class="info-link-list">
+            {{#deck_links}}
+            <button class="info-link-btn" data-deck-url="{{url}}" title="Add deck to your JPDB">{{title}}</button>
+            {{/deck_links}}
+        </div>
     </div>
     <div class="row-child-notes">
-        {{notes}}
+        {{{notes}}}
     </div>
 </div>
