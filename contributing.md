@@ -4,9 +4,9 @@ Firstly, thanks for volunteering!
 
 To create and upload your deck, please do the following:
 
-1. Check [here](https://philipguin.github.io/JpdbGameDecks) to ensure it doesn't already exist and isn't already being created by someone.
+1. Check [here](https://philipguin.github.io/JpdbGameDecks) and [here](https://github.com/philipguin/JpdbGameDecks/issues) to ensure it doesn't already exist and isn't already being created by someone.
 
-2. [Open an issue](https://github.com/philipguin/JpdbGameDecks/issues) with title "Contribution: \<Game Names\>"
+2. [Open an issue](https://github.com/philipguin/JpdbGameDecks/issues/new) with title "Contribution: \<Game Names\>"
 
     * Provide a very rough timeline. _Please do some research before making a commitment!_ Resources for a game often aren't available, and obtaining your own can be prohibitively time-consuming.
 
@@ -15,18 +15,22 @@ To create and upload your deck, please do the following:
 3. Create the deck using [jpdb](https://jpdb.io).
 
     * [Deck-from-text](https://jpdb.io/new_deck_from_text) is the preferred method, since this includes frequency information and the total word count.
-     (We potentially lose sorting information this way, but it's well worth the time saved over manual entry.)
-     However, it is _strongly recommended_ you sanitize the input text before using it. This means applying [regex](https://www.regular-expressions.info/) filters to:
+    (We potentially lose sorting information this way, but it's well worth the time saved over manual entry.)
+    However, it is _strongly recommended_ you sanitize the input text before using it.
+    This means applying [regex](https://www.regular-expressions.info/) filters to:
 
-        * remove scripting commands
         * remove line breaks in the middle of sentences (since these cause JPDB to choke)
+        * remove scripting commands
         * remove English annotations
         * substitute scripting variables with plausible Japanese text (i.e. to preserve the grammatical structure for analysis)
         * and basically transform the input until it's as well formed a wall of Japanese text as possible.
           
         [Sublime Text](https://www.sublimetext.com/) is a great tool for this, but `grep`-ing from the command line is also valid.
 
-    * Use multiple decks for multiple chapters or categories (e.g. story, item descriptions), depending on what'd be most useful and the level of effort involved.
+    * Use multiple decks for different chapters or categories (e.g. story, item descriptions),
+    depending on what's most useful and the level of effort involved.
+    (JPDB has a deck size limit of 10k by default, upgraded to 50k with a Patreon subscription,
+    so splitting the deck beneath these thresholds is important.)
 
     * You don't have to put in a crazy amount of effort -- just get the low-hanging fruit and be honest about the quality when it's time to upload.
 
@@ -53,10 +57,10 @@ store-links:               # Prefer Steam, then GOG, then whatever legal source.
 deck-author: Your Name     # Must be identical to other decks you've submitted.
 include-filter: '.*Kanji.*'   # Regexes for file paths relative to game dir. If provided, CSVs must match (or not)
 exclude-filter: 'alt_csvs/.*' #  to be included in aggregate statistics (e.g. Unique Words).
-difficulty: 5              # Use jpdb.io difficulty as reference, e.g. in Chat-GPT prompt.
+difficulty: 5              # Use jpdb.io difficulty as reference, e.g. in Chat-GPT prompt (though it's tricky).
 difficulty-source: gpt4o   # LLM used (e.g. Chat-GPT). Leave blank if difficulty gauged without.
 progress: complete         # "complete"/"100"/"100%" are special values, anything else is displayed with title in parenthesis.
-sortedness: 8              # Leave blank if you just can't tell.
+sortedness: 8              # Use an LLM if the input text is small, or leave blank if you just can't tell.
 quality: 9                 # Make your best guess. E.g. start at 10 and deduct a point for every significant problem.
 notes-and-sources: >-      # You must credit and link sources, if any. '>-' marks a multi-line string that removes newlines.
   Story deck is sorted and solid, but tutorials and other text are in a
@@ -95,7 +99,7 @@ notes-and-sources: >-      # You must credit and link sources, if any. '>-' mark
             pre-commit install
             ```
 
-            (`pre-commit` is required so that any change to an `info.yaml` file will propagate to the website, i.e. by automatically updating `docs/decks.tsv`.)
+            (`pre-commit` is **required** so that any change to an `info.yaml` file will propagate to the website.)
 
         3. Create a new branch:
 
@@ -107,13 +111,14 @@ notes-and-sources: >-      # You must credit and link sources, if any. '>-' mark
 
             * You *must* add or update an `info.yaml` as described above!
             * You *must not* include any direct or translated game text!
-            * Place your CSVs in the appropriate game folder, making a new one if necessary.
+            * Place your CSVs in the appropriate game folder under `decks`, making a new one if necessary.
             * If there are multiple CSVs, consider adding a `README.md` to help the user choose.
             * You can add any useful python scripts or resources for deck generation to an adjacent `src` folder in the game directory.
-                There are general purpose scripts under `scripts/` as well.
-            * You can preview any changes to `info.yaml` files by [setting up jekyll locally](https://jekyllrb.com/docs/installation/) then running:
+            There are general purpose scripts under `scripts/` as well.
+            * If you're changing the website, or would like to preview any changes to `info.yaml` files (not required), you can [set up jekyll locally](https://jekyllrb.com/docs/installation/) then run:
 
                 ```bash
+                cd docs
                 git add --all
                 pre-commit run gen-decks-status --verbose
                 jekyll serve
@@ -129,8 +134,7 @@ notes-and-sources: >-      # You must credit and link sources, if any. '>-' mark
             ```
 
             If your `info.yaml` is invalid, the commit will fail with helpful error messages (hopefully).
-            To see what the resulting table entry's [HTML](docs/_includes/deck-table.html) looks like without committing,
-            run `pre-commit run gen-decks-status` in the root directory.
+            Run `pre-commit run gen-decks-status` to invoke this check without actually committing.
 
             Try to use multiple commits for unrelated changes, e.g. one commit per game added.
 

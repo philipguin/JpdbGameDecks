@@ -2,10 +2,10 @@
 
 An unofficial collection of [jpdb.io](https://jpdb.io) vocabulary/kanji decks for studying Japanese video game text!
 
-Before downloading, you can browse decks [here](https://philipguin.github.io/JpdbGameDecks) for status and quality information, as well as Steam page links.
+You can browse decks [here](https://philipguin.github.io/JpdbGameDecks) and add them directly to your JPDB deck list.
 
 
-## Installation
+## Alternative Method
 1. Download the desired CSV files. Options:
    1. Download the entire project by running `git clone` from the command line.
    2. Download the entire project as a zip file via the green button above.

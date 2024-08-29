@@ -230,7 +230,7 @@ async function setupDeckTable() {
                 data: null,
                 defaultContent: '',
             }, {
-
+                className: 'aux-control' // this can expand too
             }, {
                 width: '80px',
                 orderable: false,
@@ -253,7 +253,7 @@ async function setupDeckTable() {
 
     const template = await getText('decks-row-expand.html');
 
-    table.on('click', 'td.dt-control', function(e) {
+    table.on('click', 'td.dt-control, td.aux-control', function(e) {
         let tr = $(e.target).closest('tr');
         let row = table.row(tr);
 
