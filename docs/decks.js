@@ -31,7 +31,7 @@ function showToast(type, message) {
 
 async function getText(url) {
     const response = await fetch(url, { cache: 'no-cache' });
-    if (!response.ok) throw new Error(`Failed to fetch ${url}: ${e}`);
+    if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
     return await response.text();
 }
 
@@ -63,7 +63,7 @@ async function loadCsvData(url) {
 }
 async function addDeckToJpdb(relPath) {
     try {
-        const fullUrl = 'https://raw.githubusercontent.com/philipguin/JpdbGameDecks/main/' + relPath
+        const fullUrl = 'https://raw.githubusercontent.com/philipguin/JpdbGameDecks/main/decks/' + relPath
         const deckName = relPath.substring(relPath.lastIndexOf("/") + 1, relPath.length - 4);
 
         const apiKey = await getJpdbApiKey();

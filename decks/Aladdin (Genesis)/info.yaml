@@ -1,0 +1,14 @@
+name: Aladdin (Genesis)
+store-links: []
+deck-author: Frizzil
+include-filter: '.*Kanji.*'
+difficulty: 3-4
+difficulty-source: gpt4o
+progress: complete
+sortedness: 10
+quality: 10
+notes-and-sources: >-
+  Based on the
+  <a href="http://www.lltvg.com/wiki/Aladdin_(Genesis)/Transcript">SEGA Genesis transcript</a>
+  by LLTVG.
+  Kanji-fied version produced with Chat-GPT 4o.

@@ -86,7 +86,9 @@ def output_tsv_decks(output_file, yaml_infos):
                 file_path = os.path.join(root, file)
                 file_path_test = os.path.relpath(file_path, game_dir).replace('\\', '/').lstrip('./')
 
-                deck_paths.append(file_path.replace('\\', '/').replace('|', '\\|'))
+                tsv_path = file_path.replace('\\', '/').replace('|', '\\|')
+                tsv_path = tsv_path[tsv_path.index('/') + 1:]
+                deck_paths.append(tsv_path)
 
                 is_match = True
                 if include_pattern and not include_pattern.fullmatch(file_path_test): is_match = False
@@ -117,22 +119,19 @@ def output_tsv_decks(output_file, yaml_infos):
         output_file.write('\t'.join(str(x) for x in row))
 
 def main():
-    base_dir = os.getcwd()
+    decks_dir = 'decks'
     yaml_infos = []
     invalid_files = []
 
-    excluded_dirs = set(['docs', 'scripts'])
-
-    for root in os.listdir(base_dir):
-        if not os.path.isdir(root): continue
-        if root.startswith('.'): continue
-        if root in excluded_dirs: continue
+    for root in os.scandir(decks_dir):
+        if not root.is_dir(): continue
+        if root.name.startswith('.'): continue
 
         for file in os.listdir(root):
             if file == 'info.yml' or file == 'info.yaml':
                 file_path = os.path.join(root, file)
                 if validate_yaml(file_path):
-                    yaml_infos.append((root, scrape_info(file_path)))
+                    yaml_infos.append((os.path.join(decks_dir, root.name), scrape_info(file_path)))
                 else:
                     invalid_files.append(file_path)
 
