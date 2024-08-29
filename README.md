@@ -9,9 +9,9 @@ You can browse decks [here](https://philipguin.github.io/JpdbGameDecks) and add 
 1. Download the desired CSV files. Options:
    1. Download the entire project by running `git clone` from the command line.
    2. Download the entire project as a zip file via the green button above.
-   3. Download individual CSVs using a tool like <https://mew.js.cool/DownGit/#/home>.
+   3. Download individual CSVs from `decks` using a tool like <https://mew.js.cool/DownGit/#/home>.
 2. Head to <https://jpdb.asayake.xyz> and enter your JPDB API key.
-3. Under _Import Decks_, select the CSVs you want from those just downloaded.
+3. Under _Import Decks_, select the CSVs from you want from those in the `decks` folder.
    * Note there's a 250 deck limit and it takes about a second per deck.
 4. (Optional) merge decks using <https://kampffrosch94.github.io/jpdb-deck-manager>.
 
