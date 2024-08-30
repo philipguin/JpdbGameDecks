@@ -95,18 +95,32 @@ function formatName(name, progress) {
     if (isProgressComplete(progress)) return name;
     return `${name} (${progress})`
 }
-function iconForLinkUrl(url) {
-    if (url.startsWith('https://store.steampowered.com')) return 'icons/steam.svg';
-    else if (url.startsWith('https://www.gog.com')) return 'icons/gog.png';
-    else if (url.startsWith('https://store.epicgames.com')) return 'icons/epic_games.png';
-    else return 'icons/external_link.svg';
+function linkType(url) {
+    if (url.startsWith('https://store.steampowered.com')) return 'steam';
+    else if (url.startsWith('https://www.gog.com')) return 'gog';
+    else if (url.startsWith('https://store.epicgames.com')) return 'epic';
+    else return 'other';
 }
-function formatStoreLinks(links) {
+function iconForLinkType(type) {
+    if (type == 'steam') return 'icons/steam.svg';
+    if (type == 'gog') return 'icons/gog.png';
+    if (type == 'epic') return 'icons/epic_games.png';
+    return 'icons/external_link.svg';
+}
+function altForLinkType(type, gameTitle) {
+    if (type == 'steam') return 'Steam store page';
+    if (type == 'gog') return 'GOG store page';
+    if (type == 'epic') return 'Epic Games store page';
+    return 'Store page';
+}
+function formatStoreLinks(links, gameTitle) {
     if (!links) return '';
     let result = `<div class="store-links">`;
     for (const link of links.split('|')) {
+        const type = linkType(link);
+        const alt = altForLinkType(type) + ' for ' + gameTitle;
         result += `<a href="${link}" target="_blank" rel="noopener noreferrer">`;
-        result += `<img src="${iconForLinkUrl(link)}" width="16" height="16">`;
+        result += `<img src="${iconForLinkType(type)}" alt="${alt}" width="16" height="16">`;
         result += `</a>`;
     }
     result += '</div>';
@@ -209,7 +223,7 @@ async function setupDeckTable() {
             return [
                 '',
                 formatName(row[0], row[1]),
-                formatStoreLinks(row[2]),
+                formatStoreLinks(row[2], row[0]),
                 formatDifficulty(row[3], row[4]),
                 formatSortedness(row[5]),
                 formatQuality(row[6]),
