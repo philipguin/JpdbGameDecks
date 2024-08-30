@@ -276,7 +276,7 @@ async function setupMetrics() {
         if (!line.trim()) continue;
         let cells = line.split('\t');
         let li = document.createElement('li');
-        li.textContent = `${cells[0]}: ${cells[1]}`;
+        li.innerHTML = `${cells[0]}: ${cells[1]}`;
         ul.appendChild(li);
     }
     document.getElementById('metrics').appendChild(ul);

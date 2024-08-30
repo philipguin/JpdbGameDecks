@@ -87,3 +87,8 @@ table.dataTable th {
     align-items: center;
     gap: 6px;
 }
+
+.contributor {
+    cursor: help;
+    color: #fff;
+}
