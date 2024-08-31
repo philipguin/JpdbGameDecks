@@ -17,15 +17,17 @@ title: null
     <li><a href="https://github.com/philipguin/JpdbGameDecks/?tab=readme-ov-file#alternative-method">Alternative Method</a></li>
     <!--li><a href="https://github.com/philipguin/JpdbGameDecks/archive/refs/heads/main.zip">Download All</a></li-->
     <li><a href="https://github.com/philipguin/JpdbGameDecks/blob/main/contributing.md">Contributing</a></li>
+    <li><a href="#columns-explanation">Columns Explanation</a></li>
 </ul>
 
 <div class="table-container">
     <table id="game-table" class="display">
         <thead>
-            <th></th>
+            <th></th><!-- expand widget -->
+            <th></th><!-- hidden game index -->
             <th>Game</th>
             <th>Store</th>
-            <th title="Difficulty">Diff</th>
+            <th title="Difficulty">D</th>
             <th title="Sortedness">S</th>
             <th title="Quality">Q</th>
             <th title="Unique Words">U</th>
@@ -33,13 +35,12 @@ title: null
     </table>
 </div>
 
-<button class="columns-expl-btn">Columns Explanation</button>
+<button id="columns-explanation" class="columns-expl-btn">Columns Explanation</button>
 <div class="columns-expl-content">
-    {% include columns-explanation.html %}
+{% include columns-explanation.html %}
 </div>
 
 <h3>Metrics</h3>
-
 <div id="metrics"></div>
 
 

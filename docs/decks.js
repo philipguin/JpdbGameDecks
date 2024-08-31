@@ -7,15 +7,43 @@ let expandedRow = null;
 document.addEventListener("DOMContentLoaded", function() {
     const coll = document.querySelectorAll(".columns-expl-btn");
     
+    // Setup collapser buttons and content
     coll.forEach(function(button) {
         button.addEventListener("click", function() {
             this.classList.toggle("active");
             const content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
+            if (content.style.display === '' || content.style.display === "none") {
                 content.style.display = "block";
+            } else {
+                content.style.display = "none";
             }
+        });
+    });
+
+    function scrollTo(id) {
+        const target = document.getElementById(id);
+        if (target) {
+            if (target.tagName === 'BUTTON') {
+                const content = target.nextElementSibling;
+                if (content && (content.style.display === '' || content.style.display === 'none')) {
+                    target.classList.toggle("active");
+                    content.style.display = "block";
+                }
+            }
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    // Check if there's a hash in the URL
+    const hash = window.location.hash.substring(1);
+    if (hash) scrollTo(hash); //TODO: this needs to wait until layout shifts are done, somehow
+
+    // Handle clicks on links that contain hashes
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href').substring(1);
+            scrollTo(targetId);
         });
     });
 });
@@ -126,38 +154,51 @@ function formatStoreLinks(links, gameTitle) {
     result += '</div>';
     return result;
 }
-function getDifficultyIndex(value) {
-    if (value === null || value === undefined || value == '') return 0;
 
-    const matchUnknown = /^[\?\s]+$/.test(value);
-    if (matchUnknown) {
-        return 0;
+const rgxInt = /^\s*(\d+)(\s*\?)?\s*$/;
+const rgxReal = /^\s*(\d+\.\d*?|\d*\.\d+)(\s*\?)?\s*$/;
+const rgxIntRange = /^\s*(\d+)\s*\-\s*(\d+)(\s*\?)?\s*$/;
+
+function parseDifficulty(value) {
+    if (value === null || value === undefined || value == '') return ['', 0];
+
+    //FIXME: Math.round(num) or num.toFixed(1), which are we using?
+
+    const matchInt = rgxInt.exec(value); // (e.g., "12" or "12?")
+    if (matchInt) {
+        const num = parseInt(matchInt[1]);
+        const isUncertain = matchInt[2];
+        return [num, num];
     }
-    const matchSingle = /^\s*(\d+)(\s*\?)?\s*$/.exec(value); // (e.g., "12" or "12?")
-    if (matchSingle) {
-        return parseInt(matchSingle[1], 10);
+    const matchReal = rgxReal.exec(value); // (e.g., "2.0" or "2.0?")
+    if (matchReal) {
+        const num = parseFloat(matchReal[1]);
+        const isUncertain = matchReal[2];
+        return [num.toFixed(1), Math.round(num)];
     }
-    const matchRange = /^\s*(\d+)\s*\-\s*(\d+)(\s*\?)?\s*$/.exec(value); // (e.g., "12-15" or "12-15?")
-    if (matchRange) {
-        const num1 = parseInt(matchRange[1], 10);
-        const num2 = parseInt(matchRange[2], 10);
-        return Math.round((num1 + num2) / 2);
+    const matchIntRange = rgxIntRange.exec(value); // (e.g., "12-15" or "12-15?")
+    if (matchIntRange) {
+        const isUncertain = matchIntRange[3];
+        const num1 = parseInt(matchIntRange[1]);
+        const num2 = parseInt(matchIntRange[2]);
+        const num = (num1 + num2) * 0.5;
+        return [`${num1}-${num2}`, Math.round(num)];
     }
     throw new Error(`Difficulty format not recognized: "${value}"`);
 }
-function formatDifficulty(difficulty, diffSrc) {
+function formatDifficulty(difficultyStr, diffSrc) {
 
     const difficultyColors = [
         '#FFFFFF', '#00FF00', '#32FF00', '#64FF00', '#96FF00', '#C8FF00',
         '#FFFF00', '#FFC800', '#FF9600', '#FF6400', '#FF3200', '#FF0000',
     ]
-    const color = difficultyColors[getDifficultyIndex(difficulty)];
-    if (typeof difficulty === 'string') difficulty = difficulty.replaceAll("-", "&#8209;"); // non-breaking hyphen
+    let [difficulty, colorIdx] = parseDifficulty(difficultyStr);
 
+    const color = difficultyColors[colorIdx];
     difficulty = `<font color="${color}">${difficulty}</font>`;
-    if (diffSrc) {
-        difficulty = `${difficulty}&nbsp;<sub>${diffSrc}</sub>`;
-    }
+
+    if (!diffSrc) diffSrc = "manual";
+    difficulty = `<span title="${diffSrc}">${difficulty}</span>`;
     return difficulty;
 }
 function formatSortedness(str) {
@@ -222,6 +263,7 @@ async function setupDeckTable() {
         try {
             return [
                 '',
+                i, // name index
                 formatName(row[0], row[1]),
                 formatStoreLinks(row[2], row[0]),
                 formatDifficulty(row[3], row[4]),
@@ -236,6 +278,8 @@ async function setupDeckTable() {
     });
     const table = $('#game-table').DataTable({
 		responsive: true,
+        paging: false, // This would kill SEO without massive workarounds, unfortunately
+        data: tableRows,
         columns: [
             {
                 className: 'dt-control',
@@ -244,12 +288,19 @@ async function setupDeckTable() {
                 data: null,
                 defaultContent: '',
             }, {
-                className: 'aux-control' // this can expand too
+                visible: false, // name index for sorting
             }, {
+                className: 'dt-nowrap aux-control', // this can expand too
+                orderData: [1],
+                //TODO: sort names by "orthogonal data", see DataTables docs.
+                //  Just spit out integer index of name somehow, since it's already sorted like we want.
+            }, {
+                className: 'dt-nowrap',
                 width: '80px',
                 orderable: false,
                 searchable: false,
             }, {
+                className: 'dt-nowrap dt-body-left',
                 width: '50px',
             }, {
                 width: '25px',
@@ -260,9 +311,25 @@ async function setupDeckTable() {
             }, {
                 width: '25px',
                 type: 'html-num',
-            }
+            },
         ],
-        data: tableRows,
+        drawCallback: function() {
+            const api = this.api();
+            
+            // Hack to allow Google/spiders to crawl through all pages, instead of only the first
+            //    https://datatables.net/forums/discussion/34445/google-indexing-of-table-pages
+            $( 'a.paginate_button', this.api().table().container() ).attr('href', '#!');
+
+             // Hack to copy active-sort-arrow over, not working when we use orderData
+            let sortStr = '';
+            for (const orderEl of api.order()) {
+                if (orderEl[0] != 2) continue;
+                sortStr = 'dt-ordering-' + orderEl[1]
+                break;
+            }
+            const headerNames = api.column(2).header();
+            headerNames.className = headerNames.className.replace(/\s*dt-ordering-(_asc|_desc)/, '') + ' ' + sortStr;
+        },
 	});
 
     const template = await getText('decks-row-expand.html');
