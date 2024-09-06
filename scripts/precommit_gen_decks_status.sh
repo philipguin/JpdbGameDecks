@@ -7,4 +7,4 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-git add docs/deck-metrics.tsv docs/decks.tsv
+git add docs/_includes/deck-metrics.html docs/_includes/decks-body.html

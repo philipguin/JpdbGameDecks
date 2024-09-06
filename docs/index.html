@@ -23,15 +23,11 @@ title: null
 <div class="table-container">
     <table id="game-table" class="display">
         <thead>
-            <th></th><!-- expand widget -->
-            <th></th><!-- hidden game index -->
-            <th>Game</th>
-            <th>Store</th>
-            <th title="Difficulty">D</th>
-            <th title="Sortedness">S</th>
-            <th title="Quality">Q</th>
-            <th title="Unique Words">U</th>
+            {% include decks-head.html %}
         </thead>
+        <tbody>
+            {% include decks-body.html %}
+        </tbody>
     </table>
 </div>
 
@@ -41,7 +37,9 @@ title: null
 </div>
 
 <h3>Metrics</h3>
-<div id="metrics"></div>
+<div id="metrics">
+{% include deck-metrics.html %}
+</div>
 
 
 <script type="module" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

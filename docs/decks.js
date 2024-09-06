@@ -1,8 +1,13 @@
 
 import JPDB from './jpdb.js';
 
+
+let cachedRows = null;
+let cachedRowExpandTemplate = null;
 let cachedJpdbApiKey = null;
+
 let expandedRow = null;
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const coll = document.querySelectorAll(".columns-expl-btn");
@@ -115,107 +120,6 @@ function onRowChildExpanded(element) {
 }
 
 
-function isProgressComplete(x) { // NOTE: logic duplicated in gen_decks_status.py
-    x = x.toLowerCase();
-    return x === 'complete' || x === '100' || x === '100%';
-}
-function formatName(name, progress) {
-    if (isProgressComplete(progress)) return name;
-    return `${name} (${progress})`
-}
-function linkType(url) {
-    if (url.startsWith('https://store.steampowered.com')) return 'steam';
-    else if (url.startsWith('https://www.gog.com')) return 'gog';
-    else if (url.startsWith('https://store.epicgames.com')) return 'epic';
-    else return 'other';
-}
-function iconForLinkType(type) {
-    if (type == 'steam') return 'icons/steam.svg';
-    if (type == 'gog') return 'icons/gog.png';
-    if (type == 'epic') return 'icons/epic_games.png';
-    return 'icons/external_link.svg';
-}
-function altForLinkType(type, gameTitle) {
-    if (type == 'steam') return 'Steam store page';
-    if (type == 'gog') return 'GOG store page';
-    if (type == 'epic') return 'Epic Games store page';
-    return 'Store page';
-}
-function formatStoreLinks(links, gameTitle) {
-    if (!links) return '';
-    let result = `<div class="store-links">`;
-    for (const link of links.split('|')) {
-        const type = linkType(link);
-        const alt = altForLinkType(type) + ' for ' + gameTitle;
-        result += `<a href="${link}" target="_blank" rel="noopener noreferrer">`;
-        result += `<img src="${iconForLinkType(type)}" alt="${alt}" width="16" height="16">`;
-        result += `</a>`;
-    }
-    result += '</div>';
-    return result;
-}
-
-const rgxInt = /^\s*(\d+)(\s*\?)?\s*$/;
-const rgxReal = /^\s*(\d+\.\d*?|\d*\.\d+)(\s*\?)?\s*$/;
-const rgxIntRange = /^\s*(\d+)\s*\-\s*(\d+)(\s*\?)?\s*$/;
-
-function parseDifficulty(value) {
-    if (value === null || value === undefined || value == '') return ['', 0];
-
-    //FIXME: Math.round(num) or num.toFixed(1), which are we using?
-
-    const matchInt = rgxInt.exec(value); // (e.g., "12" or "12?")
-    if (matchInt) {
-        const num = parseInt(matchInt[1]);
-        const isUncertain = matchInt[2];
-        return [num, num];
-    }
-    const matchReal = rgxReal.exec(value); // (e.g., "2.0" or "2.0?")
-    if (matchReal) {
-        const num = parseFloat(matchReal[1]);
-        const isUncertain = matchReal[2];
-        return [num.toFixed(1), Math.round(num)];
-    }
-    const matchIntRange = rgxIntRange.exec(value); // (e.g., "12-15" or "12-15?")
-    if (matchIntRange) {
-        const isUncertain = matchIntRange[3];
-        const num1 = parseInt(matchIntRange[1]);
-        const num2 = parseInt(matchIntRange[2]);
-        const num = (num1 + num2) * 0.5;
-        return [`${num1}-${num2}`, Math.round(num)];
-    }
-    throw new Error(`Difficulty format not recognized: "${value}"`);
-}
-function formatDifficulty(difficultyStr, diffSrc) {
-
-    const difficultyColors = [
-        '#FFFFFF', '#00FF00', '#32FF00', '#64FF00', '#96FF00', '#C8FF00',
-        '#FFFF00', '#FFC800', '#FF9600', '#FF6400', '#FF3200', '#FF0000',
-    ]
-    let [difficulty, colorIdx] = parseDifficulty(difficultyStr);
-
-    const color = difficultyColors[colorIdx];
-    difficulty = `<font color="${color}">${difficulty}</font>`;
-
-    if (!diffSrc) diffSrc = "manual";
-    difficulty = `<span title="${diffSrc}">${difficulty}</span>`;
-    return difficulty;
-}
-function formatSortedness(str) {
-    if (str.endsWith('?')) str = `<font color="#f8f">${str.substring(0, str.length - 1)}</font>`;
-    return str;
-}
-function formatQuality(str) {
-    if (str.endsWith('?')) str = `<font color="#f8f">${str.substring(0, str.length - 1)}</font>`;
-    return str;
-}
-function formatUniqueWords(str) {
-    return str;
-}
-// function formatTotalWords(str, uniqueWordsStr) {
-//     if (Math.round(str) <= Math.round(uniqueWordsStr)) return ""; // round converts to number first
-//     return `<font size="2">${str}</font>`;
-// }
 function formatMoreInfo(template, childData) {
     let unique_words = childData[7] || 'Unknown';
     let total_words = childData[8] || 'Unknown';
@@ -253,62 +157,46 @@ function formatMoreInfo(template, childData) {
         notes: notes
     });
 }
-async function setupDeckTable() {
+$(document).ready(async function() {
 
-    const rows = (await getText('decks.tsv'))
-        .split('\n')
-        .map(x => x.split('\t'));
-
-    const tableRows = rows.map((row, i) => {
-        try {
-            return [
-                '',
-                i, // name index
-                formatName(row[0], row[1]),
-                formatStoreLinks(row[2], row[0]),
-                formatDifficulty(row[3], row[4]),
-                formatSortedness(row[5]),
-                formatQuality(row[6]),
-                formatUniqueWords(row[7]),
-                //formatTotalWords(row[8], row[7]),
-            ];
-        } catch(e) {
-            console.log(`Exception while formatting row ${i}: ${e}`);
-        }
-    });
     const table = $('#game-table').DataTable({
 		responsive: true,
         paging: false, // This would kill SEO without massive workarounds, unfortunately
-        data: tableRows,
         columns: [
-            {
+            {   // widget
                 className: 'dt-control',
                 orderable: false,
                 searchable: false,
-                data: null,
                 defaultContent: '',
             }, {
-                visible: false, // name index for sorting
+                // name sort index
+                visible: false,
             }, {
+                // name
                 className: 'dt-nowrap aux-control', // this can expand too
                 orderData: [1],
                 //TODO: sort names by "orthogonal data", see DataTables docs.
                 //  Just spit out integer index of name somehow, since it's already sorted like we want.
             }, {
+                // store links
                 className: 'dt-nowrap',
                 width: '80px',
                 orderable: false,
                 searchable: false,
             }, {
+                // difficulty
                 className: 'dt-nowrap dt-body-left',
                 width: '50px',
             }, {
+                // sortedness
                 width: '25px',
                 type: 'html-num',
             }, {
+                // quality
                 width: '25px',
                 type: 'html-num',
             }, {
+                // unique words
                 width: '25px',
                 type: 'html-num',
             },
@@ -332,9 +220,7 @@ async function setupDeckTable() {
         },
 	});
 
-    const template = await getText('decks-row-expand.html');
-
-    table.on('click', 'td.dt-control, td.aux-control', function(e) {
+    table.on('click', 'td.dt-control, td.aux-control', async function(e) {
         let tr = $(e.target).closest('tr');
         let row = table.row(tr);
 
@@ -343,27 +229,17 @@ async function setupDeckTable() {
             expandedRow = null;
         } else {
             if (expandedRow) expandedRow.hide();
+            expandedRow = null;
+
+            if (cachedRows == null) {
+                cachedRows = (await getText('decks.tsv')).split('\n').map(x => x.split('\t'));
+            }
+            if (cachedRowExpandTemplate == null) {
+                cachedRowExpandTemplate = await getText('decks-row-expand.html');
+            }
             expandedRow = row;
-            row.child(formatMoreInfo(template, rows[row.index()])).show();
+            row.child(formatMoreInfo(cachedRowExpandTemplate, cachedRows[row.index()])).show();
             onRowChildExpanded(row.child());
         }
     });
-}
-
-async function setupMetrics() {
-    const lines = (await getText('deck-metrics.tsv')).split('\n');
-    const ul = document.createElement('ul');
-    for (const line of lines) {
-        if (!line.trim()) continue;
-        let cells = line.split('\t');
-        let li = document.createElement('li');
-        li.innerHTML = `${cells[0]}: ${cells[1]}`;
-        ul.appendChild(li);
-    }
-    document.getElementById('metrics').appendChild(ul);
-}
-
-$(document).ready(async function() {
-    await setupDeckTable();
-    await setupMetrics();
 });
